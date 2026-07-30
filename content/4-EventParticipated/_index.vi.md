@@ -1,80 +1,48 @@
 ---
-title: "Các events đã tham gia"
-date: 2024-01-01
+title: "Các sự kiện đã tham gia"
+date: 2026-06-06
 weight: 4
 chapter: false
 pre: " <b> 4. </b> "
-includeInReport: false
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-> Trong phần này, các bạn cần liệt kê và mô tả chi tiết các sự kiện (event) mà mình đã tham gia trong suốt quá trình thực tập hoặc làm việc. 
-> 
-> Mỗi sự kiện nên được trình bày theo định dạng Event 1, Event 2, Event 3…, kèm theo các thông tin:
-> * Tên sự kiện
-> * Thời gian tổ chức
-> * Địa điểm (nếu có)
-> * Vai trò của bạn trong sự kiện (người tham dự, hỗ trợ tổ chức, diễn giả, v.v.)
-> * Mô tả ngắn gọn nội dung và hoạt động chính trong sự kiện
-> * Kết quả hoặc giá trị đạt được (bài học, kỹ năng mới, đóng góp cho nhóm/dự án)
-> * Việc liệt kê này giúp thể hiện rõ sự tham gia thực tế của bạn, cũng như các kỹ năng mềm và kinh nghiệm bạn đã tích lũy qua từng sự kiện.
-
-
-Trong quá trình thực tập, em đã tham gia 5 events, với mỗi event là một trải nghiệm đáng nhớ với những kiến thức mới, hay và bổ ích, cùng với đó là những món quà và những khoảnh khắc rất tuyệt vời.
-
-### [Event 1](4.1-Event1/)
-&emsp;**Tên sự kiện:** GenAI-powered App-DB Modernization workshop
-
-&emsp;**Thời gian:** 09:00 ngày 13/08/2025
-
-&emsp;**Địa điểm:** Tầng 26, tòa nhà Bitexco, số 02 đường Hải Triều, phường Sài Gòn, thành phố Hồ Chí Minh
-
-&emsp;**Vai trò trong sự kiện:** Người tham dự 
-
-
-
-### [Event 2](4.2-Event2/)
-&emsp;**Tên sự kiện:** GenAI-powered App-DB Modernization workshop
-
-&emsp;**Thời gian:** 09:00 ngày 13/08/2025
-
-&emsp;**Địa điểm:** Tầng 26, tòa nhà Bitexco, số 02 đường Hải Triều, phường Sài Gòn, thành phố Hồ Chí Minh
-
-&emsp;**Vai trò trong sự kiện:** Người tham dự 
+Trong suốt 8 tuần thực tập FCAJ, em đã tham gia **3 sự kiện** — mỗi event là một trải nghiệm đáng nhớ với những kiến thức mới, các diễn giả truyền cảm hứng và cơ hội kết nối với cộng đồng AWS Việt Nam.
 
 ---
 
-### [Event 3 — FCAJ Meet 13/06/2026](4.3-FCAJ-Meet-13-06/)
-&emsp;**Tên sự kiện:** FCAJ internal meet-up
+### [Event 1 — FCAJ Meet 13/06/2026](4.1-FCAJ-Meet-13-06/)
+&emsp;**Tên sự kiện:** FCAJ Internal Meet-up
 
 &emsp;**Thời gian:** 13/06/2026
 
-&emsp;**Định dạng:** Lightning talks + sharing session
+&emsp;**Địa điểm:** <!-- TODO: cập nhật địa điểm thực tế -->
 
 &emsp;**Vai trò:** Người tham dự
 
+&emsp;**Định dạng:** Lightning talks + sharing session nội bộ (4 talks: Data Analytics, DevOps, AWS Partner journey, sharing ngắn)
+
 ---
 
-### [Event 4 — FCAJ Meetup 06/06/2026](4.4-FCAJ-Meetup-06-06/)
-&emsp;**Tên sự kiện:** FCAJ community meetup (6 lightning talks)
+### [Event 2 — FCAJ Meetup 06/06/2026](4.2-FCAJ-Meetup-06-06/)
+&emsp;**Tên sự kiện:** FCAJ Community Meetup
 
 &emsp;**Thời gian:** 06/06/2026
 
-&emsp;**Định dạng:** 6 lightning talks (~25 phút mỗi talk)
+&emsp;**Địa điểm:** <!-- TODO: cập nhật địa điểm thực tế -->
 
 &emsp;**Vai trò:** Người tham dự
+
+&emsp;**Định dạng:** 6 lightning talks (~25 phút mỗi talk) — Docker, AWS WAF + ML NIDS, Godot WebSockets, teamwork, Neptune + GraphRAG, Sysadmin journey
 
 ---
 
-### [Event 5 — FCAJ x AABW Hackathon](4.5-FCAJ-x-AABW/)
-&emsp;**Tên sự kiện:** FCAJ x AABW Hackathon (Agentic AI Build Week)
+### [Event 3 — FCAJ x AABW Hackathon](4.3-FCAJ-x-AABW/)
+&emsp;**Tên sự kiện:** FCAJ x AABW Hackathon — Agentic AI Build Week
 
 &emsp;**Thời gian:** ~25/07/2026
 
-&emsp;**Định dạng:** 4 nhóm pitch sản phẩm AI dùng AWS services
+&emsp;**Địa điểm:** <!-- TODO: cập nhật địa điểm thực tế -->
 
 &emsp;**Vai trò:** Người tham dự
 
+&emsp;**Định dạng:** 4 nhóm pitch sản phẩm AI dùng AWS services (Hackathon Journey, Conversation Ordering, SA Assistant, Strategy early detection)
