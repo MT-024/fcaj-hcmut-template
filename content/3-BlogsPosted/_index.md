@@ -11,13 +11,13 @@ includeInReport: false
 ⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
 {{% /notice %}}
 
-This section will list and introduce the blogs you have posted to [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj). For example:
+This section lists the blogs I have posted to [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj) during my FCAJ internship.
 
-###  [Blog 1 - SESSION POLICIES IN AMAZON EKS POD IDENTITY](3.1-Blog1/)
-This blog introduces the newly added session policies feature in Amazon EKS Pod Identity, which allows you to narrow IAM permissions flexibly and precisely for each pod without needing to create multiple separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+### [Blog 1 — AWS Lambda: "Use right" and "Run fast" strategies for cost optimization](3.1-Blog1/)
+Sharing key principles when designing Lambda-based systems: when Lambda fits vs. when it doesn't, the "execution environment" static initialization trick, Lambda Power Tuning, cold start reduction, RDS Proxy for database connections, and X-Ray for debugging.
 
-###  [Blog 2 - ...](3.2-Blog2/)
-This blog introduces the newly added session policies feature in Amazon EKS Pod Identity, which allows you to narrow IAM permissions flexibly and precisely for each pod without needing to create multiple separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+### [Blog 2 — Amazon SageMaker: AWS's AI/ML and how to optimize without burning money](3.2-Blog2/)
+Deep dive into SageMaker's 3-pillar architecture (Studio, Training, Inference), Managed Spot Training for up to 70% cost reduction, Warm Start & HPO discipline, instance selection strategy (CPU vs GPU), Auto Scaling, Serverless Inference, and Model Optimization (Quantization, SageMaker Neo).
 
-###  [Blog 3 - ...](3.3-Blog3/)
-This blog introduces the newly added session policies feature in Amazon EKS Pod Identity, which allows you to narrow IAM permissions flexibly and precisely for each pod without needing to create multiple separate IAM roles. This is an important step forward that helps apply the principle of least privilege more effectively in large-scale Kubernetes environments.
+### [Blog 3 — Running SageMaker MLOps on 200 USD: 13 decisions to not blow the budget](3.3-Blog3/)
+A capstone reflection: how I kept total project cost at 80–110 USD against a 200 USD cap. 13 specific decisions spanning compute (instance type, no GPU, single region), data/storage (lifecycle, single preprocess), pipeline (HPO limits, cleanup), and IAM/network (least privilege, no NAT Gateway).
