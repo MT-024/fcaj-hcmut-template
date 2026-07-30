@@ -1,6 +1,6 @@
 ---
 title: "Tuần 8"
-date: 2024-01-01
+date: 2026-07-20
 weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
@@ -30,11 +30,11 @@ reportHeadings:
 ### Công việc cần làm trong tuần:
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành |
 | --- | --------- | ------------ | --------------- |
-| 2   | - Định nghĩa SageMaker Pipeline (Kubeflow-based): ProcessingStep → TrainingStep → HPOStep → RegisterModelStep → DeployStep | 23/09/2025 | 24/09/2025 |
-| 3   | - Test pipeline end-to-end trên batch nhỏ (1 trial thay vì 6 cho nhanh) <br> - Verify pipeline ARN, execution ARN, status | 24/09/2025 | 25/09/2025 |
-| 4   | - Chạy lại với HPO đầy đủ (6 trials) — final pipeline execution | 25/09/2025 | 26/09/2025 |
-| 5   | - Viết cleanup script `cleanup.py`: delete endpoint, delete model package, delete pipeline, empty S3 bucket (sau khi download) <br> - Filter theo tag `Project=heart-risk-mlops` để tránh đụng resource khác | 26/09/2025 | 27/09/2025 |
-| 6   | - Chạy cleanup, verify mọi resource đã xóa qua Cost Explorer <br> - Đối chiếu bill cuối với cap 200 USD | 27/09/2025 | 27/09/2025 |
+| 2   | - Định nghĩa SageMaker Pipeline (Kubeflow-based): ProcessingStep → TrainingStep → HPOStep → RegisterModelStep → DeployStep | 20/07/2026 | 21/07/2026 |
+| 3   | - Test pipeline end-to-end trên batch nhỏ (1 trial thay vì 6 cho nhanh) <br> - Verify pipeline ARN, execution ARN, status | 21/07/2026 | 22/07/2026 |
+| 4   | - Chạy lại với HPO đầy đủ (6 trials) — final pipeline execution | 22/07/2026 | 23/07/2026 |
+| 5   | - Viết cleanup script `cleanup.py`: delete endpoint, delete model package, delete pipeline, empty S3 bucket (sau khi download) <br> - Filter theo tag `Project=heart-risk-mlops` để tránh đụng resource khác | 23/07/2026 | 24/07/2026 |
+| 6   | - Chạy cleanup, verify mọi resource đã xóa qua Cost Explorer <br> - Đối chiếu bill cuối với cap 200 USD | 24/07/2026 | 24/07/2026 |
 
 
 ### Thành quả tuần 8:

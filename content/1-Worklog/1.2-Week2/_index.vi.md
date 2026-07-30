@@ -1,6 +1,6 @@
 ---
 title: "Tuần 2"
-date: 2024-01-01
+date: 2026-06-08
 weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
@@ -30,11 +30,11 @@ reportHeadings:
 ### Công việc cần làm trong tuần:
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành |
 | --- | --------- | ------------ | --------------- |
-| 2   | - Đọc kỹ brief `Nội dung.docx`: kế hoạch 8 tuần, budget cap 200 USD, IAM scope, S3 paths <br> - Đọc qua `CLAUDE.md` (schema data, processed splits 80/10/10) | 12/08/2025 | 12/08/2025 |
-| 3   | - Khảo sát `raw/heart_attack_dataset.csv` (7000 dòng × 22 cột) <br> - Xác định cột có missing values (smoking_status, cholesterol, oldpeak, ...) <br> - Verify schema: age 18–100, fasting_blood_sugar ∈ {0,1}, num_major_vessels 0–3 | 13/08/2025 | 13/08/2025 |
-| 4   | - Viết `preprocess.py` với sklearn ColumnTransformer: StandardScaler cho numeric, OneHotEncoder cho nominal, OrdinalEncoder cho ordinal, passthrough cho binary <br> - Fit CHỈ trên train split để tránh leakage | 14/08/2025 | 15/08/2025 |
-| 5   | - Sinh `processed/{train,val,test}_processed.csv` <br> - Verify prefix cột: `num__`, `norm_num__`, `bin__`, `nom__`, `ord__` <br> - Lưu `preprocessor.joblib` đã fit để dùng lại | 15/08/2025 | 16/08/2025 |
-| 6   | - Tạo S3 bucket `s3://heart-risk-mlops-<account-id>/` ở `ap-southeast-1` <br> - Tạo SageMaker execution IAM role least-privilege (chỉ S3 + logs + SageMaker + PassRole) <br> - Thêm lifecycle rule: logs/artifacts hết hạn sau 30 ngày | 16/08/2025 | 16/08/2025 |
+| 2   | - Đọc kỹ brief `Nội dung.docx`: kế hoạch 8 tuần, budget cap 200 USD, IAM scope, S3 paths <br> - Đọc qua `CLAUDE.md` (schema data, processed splits 80/10/10) | 08/06/2026 | 08/06/2026 |
+| 3   | - Khảo sát `raw/heart_attack_dataset.csv` (7000 dòng × 22 cột) <br> - Xác định cột có missing values (smoking_status, cholesterol, oldpeak, ...) <br> - Verify schema: age 18–100, fasting_blood_sugar ∈ {0,1}, num_major_vessels 0–3 | 09/06/2026 | 09/06/2026 |
+| 4   | - Viết `preprocess.py` với sklearn ColumnTransformer: StandardScaler cho numeric, OneHotEncoder cho nominal, OrdinalEncoder cho ordinal, passthrough cho binary <br> - Fit CHỈ trên train split để tránh leakage | 10/06/2026 | 11/06/2026 |
+| 5   | - Sinh `processed/{train,val,test}_processed.csv` <br> - Verify prefix cột: `num__`, `norm_num__`, `bin__`, `nom__`, `ord__` <br> - Lưu `preprocessor.joblib` đã fit để dùng lại | 11/06/2026 | 12/06/2026 |
+| 6   | - Tạo S3 bucket `s3://heart-risk-mlops-<account-id>/` ở `ap-southeast-1` <br> - Tạo SageMaker execution IAM role least-privilege (chỉ S3 + logs + SageMaker + PassRole) <br> - Thêm lifecycle rule: logs/artifacts hết hạn sau 30 ngày | 12/06/2026 | 12/06/2026 |
 
 
 ### Thành quả tuần 2:

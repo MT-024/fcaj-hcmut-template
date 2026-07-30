@@ -1,6 +1,6 @@
 ---
 title: "Week 8 Worklog"
-date: 2024-01-01
+date: 2026-07-20
 weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
@@ -30,11 +30,11 @@ reportHeadings:
 ### Tasks to be carried out this week:
 | Day | Task | Start Date | Completion Date |
 | --- | ---- | ---------- | --------------- |
-| 2   | - Define SageMaker Pipeline (Kubeflow-based): ProcessingStep → TrainingStep → HPOStep → RegisterModelStep → DeployStep | 23/09/2025 | 24/09/2025 |
-| 3   | - Test pipeline end-to-end on small batch (1 trial instead of 6 for speed) <br> - Verify pipeline ARN, execution ARN, status | 24/09/2025 | 25/09/2025 |
-| 4   | - Re-run with full HPO (6 trials) — final pipeline execution | 25/09/2025 | 26/09/2025 |
-| 5   | - Write cleanup script `cleanup.py`: delete endpoint, delete model package, delete pipeline, empty S3 bucket (after download) <br> - Filter by tag `Project=heart-risk-mlops` to avoid touching other resources | 26/09/2025 | 27/09/2025 |
-| 6   | - Run cleanup, verify all resources deleted via Cost Explorer <br> - Total final bill check vs 200 USD cap | 27/09/2025 | 27/09/2025 |
+| 2   | - Define SageMaker Pipeline (Kubeflow-based): ProcessingStep → TrainingStep → HPOStep → RegisterModelStep → DeployStep | 07/20/2026 | 07/21/2026 |
+| 3   | - Test pipeline end-to-end on small batch (1 trial instead of 6 for speed) <br> - Verify pipeline ARN, execution ARN, status | 07/21/2026 | 07/22/2026 |
+| 4   | - Re-run with full HPO (6 trials) — final pipeline execution | 07/22/2026 | 07/23/2026 |
+| 5   | - Write cleanup script `cleanup.py`: delete endpoint, delete model package, delete pipeline, empty S3 bucket (after download) <br> - Filter by tag `Project=heart-risk-mlops` to avoid touching other resources | 07/23/2026 | 07/24/2026 |
+| 6   | - Run cleanup, verify all resources deleted via Cost Explorer <br> - Total final bill check vs 200 USD cap | 07/24/2026 | 07/24/2026 |
 
 
 ### Week 8 Achievements:

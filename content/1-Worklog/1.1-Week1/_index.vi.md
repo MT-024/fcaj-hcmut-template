@@ -1,64 +1,39 @@
 ---
-title: "Worklog Tuần 1"
-date: 2024-01-01
+title: "Week 1 Worklog"
+date: 2026-06-01
 weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
-reportTableColumns:
-  - Thứ
-  - Công việc
-  - Ngày hoàn thành
+includeInReport: true
 reportType: worklog
+reportTableColumns:
+  - Day
+  - Task
+  - Completion Date
+reportHeadings:
+  - Week 1 Objectives
+  - Tasks to be carried out this week
+  - Week 1 Achievements
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Week 1 Objectives:
 
-### Mục tiêu tuần 1:
+* Onboard into First Cloud AI Journey (FCAJ), meet mentor, and learn program rules.
+* Get hands-on with the AWS Console and AWS CLI in region `ap-southeast-1`.
+* Read the SageMaker MLOps capstone brief end-to-end and lock in hard constraints: 200 USD budget cap, single region, no GPU, no NAT Gateway.
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Tasks to be carried out this week:
+| Day | Task | Start Date | Completion Date |
+| --- | ---- | ---------- | --------------- |
+| 2   | - Meet FCAJ members and assigned mentor <br> - Review internship rules and weekly meeting cadence <br> - Confirm communication channels (Slack, email) | 06/01/2026 | 06/01/2026 |
+| 3   | - Create AWS Free Tier account <br> - Install and configure AWS CLI targeting region `ap-southeast-1` <br> - Verify `aws sts get-caller-identity` returns the expected account | 06/02/2026 | 06/02/2026 |
+| 4   | - Tour the AWS Console: VPC, S3, IAM, SageMaker, Lambda, API Gateway, CloudWatch <br> - Distinguish managed, serverless, and container flavors | 06/03/2026 | 06/03/2026 |
+| 5   | - Read the SageMaker MLOps capstone brief: 8-week scope, heart-attack-risk dataset, target metrics, final deliverable <br> - Skim `CLAUDE.md` constraints (schema, processed splits 80/10/10) | 06/04/2026 | 06/04/2026 |
+| 6   | - List required AWS services and estimate cost from the AWS pricing pages <br> - Re-confirm with mentor: 200 USD cap, single region, no GPU, no NAT Gateway | 06/05/2026 | 06/05/2026 |
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Week 1 Achievements:
 
-
-### Kết quả đạt được tuần 1:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Onboarded into FCAJ: mentor introduced, weekly cadence agreed.
+* AWS Free Tier account + CLI ready; region `ap-southeast-1` locked in for the entire project.
+* Internalized the brief: scope, dataset, target metrics, deliverable.
+* Rough cost estimate showed 200 USD cap is reachable with the planned configuration (no GPU, serverless inference).

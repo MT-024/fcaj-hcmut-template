@@ -1,6 +1,6 @@
 ---
 title: "Week 5 Worklog"
-date: 2024-01-01
+date: 2026-06-29
 weight: 5
 chapter: false
 pre: " <b> 1.5. </b> "
@@ -30,11 +30,11 @@ reportHeadings:
 ### Tasks to be carried out this week:
 | Day | Task | Start Date | Completion Date |
 | --- | ---- | ---------- | --------------- |
-| 2   | - Create Model Package Group `heart-attack-risk-models` in SageMaker <br> - Register best HPO model as Model Package v1 | 02/09/2025 | 02/09/2025 |
-| 3   | - Write inference script `inference.py` (preprocessor + XGBoost loading) <br> - Package as `model.tar.gz` with inference.py + xgb_model.json + preprocessor.joblib | 03/09/2025 | 04/09/2025 |
-| 4   | - Deploy Endpoint `heart-risk-endpoint` on `ml.t2.medium` (or `ml.t3.medium`) <br> - Enable Data Capture (sampling_percentage=100, capture_options=[Input, Output]) | 04/09/2025 | 05/09/2025 |
-| 5   | - Test endpoint with sample patients from `processed/test_processed.csv` <br> - Verify response includes disclaimer `"Educational demonstration only; not a medical diagnosis."` | 05/09/2025 | 06/09/2025 |
-| 6   | - Cleanup: delete endpoint after demo (cost discipline — endpoint 24/7 ≈ 35 USD/month) <br> - Document endpoint lifecycle: create-on-demo, delete-after-demo | 06/09/2025 | 06/09/2025 |
+| 2   | - Create Model Package Group `heart-attack-risk-models` in SageMaker <br> - Register best HPO model as Model Package v1 | 06/29/2026 | 06/29/2026 |
+| 3   | - Write inference script `inference.py` (preprocessor + XGBoost loading) <br> - Package as `model.tar.gz` with inference.py + xgb_model.json + preprocessor.joblib | 06/30/2026 | 07/01/2026 |
+| 4   | - Deploy Endpoint `heart-risk-endpoint` on `ml.t2.medium` (or `ml.t3.medium`) <br> - Enable Data Capture (sampling_percentage=100, capture_options=[Input, Output]) | 07/01/2026 | 07/02/2026 |
+| 5   | - Test endpoint with sample patients from `processed/test_processed.csv` <br> - Verify response includes disclaimer `"Educational demonstration only; not a medical diagnosis."` | 07/02/2026 | 07/03/2026 |
+| 6   | - Cleanup: delete endpoint after demo (cost discipline — endpoint 24/7 ≈ 35 USD/month) <br> - Document endpoint lifecycle: create-on-demo, delete-after-demo | 07/03/2026 | 07/03/2026 |
 
 
 ### Week 5 Achievements:

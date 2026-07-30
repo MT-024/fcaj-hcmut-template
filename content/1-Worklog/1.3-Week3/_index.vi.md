@@ -1,6 +1,6 @@
 ---
 title: "Tuần 3"
-date: 2024-01-01
+date: 2026-06-15
 weight: 3
 chapter: false
 pre: " <b> 1.3. </b> "
@@ -30,11 +30,11 @@ reportHeadings:
 ### Công việc cần làm trong tuần:
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành |
 | --- | --------- | ------------ | --------------- |
-| 2   | - Đọc lại brief: XGBoost config pin (objective=binary:logistic, eval_metric=auc, num_round=150, max_depth=5, eta=0.1, subsample=0.8, colsample_bytree=0.8, min_child_weight=2) <br> - Load processed train/val, verify shape, target balance | 19/08/2025 | 19/08/2025 |
-| 3   | - Viết `train.py` cho SageMaker Training Job: load preprocessor.joblib, train XGBoost với params pin, save `model.tar.gz` lên S3 <br> - Chọn instance `ml.t3.medium` (test xem 2 vCPU + 4 GB RAM có đủ không) | 20/08/2025 | 21/08/2025 |
-| 4   | - Chạy Training Job đầu tiên qua SageMaker Python SDK <br> - Verify training job finish không lỗi | 21/08/2025 | 21/08/2025 |
-| 5   | - Load model artifact, evaluate trên val set: ROC-AUC, Recall, F1, Precision, FNR, Accuracy <br> - Sinh confusion matrix + ROC curve (matplotlib, save PNG) | 22/08/2025 | 23/08/2025 |
-| 6   | - Verify AUC ≥ 0.84 và Recall ≥ 0.65 (yêu cầu brief) <br> - Nếu OK, document instance type + training time + cost cho tuần 3 | 23/08/2025 | 23/08/2025 |
+| 2   | - Đọc lại brief: XGBoost config pin (objective=binary:logistic, eval_metric=auc, num_round=150, max_depth=5, eta=0.1, subsample=0.8, colsample_bytree=0.8, min_child_weight=2) <br> - Load processed train/val, verify shape, target balance | 15/06/2026 | 15/06/2026 |
+| 3   | - Viết `train.py` cho SageMaker Training Job: load preprocessor.joblib, train XGBoost với params pin, save `model.tar.gz` lên S3 <br> - Chọn instance `ml.t3.medium` (test xem 2 vCPU + 4 GB RAM có đủ không) | 16/06/2026 | 17/06/2026 |
+| 4   | - Chạy Training Job đầu tiên qua SageMaker Python SDK <br> - Verify training job finish không lỗi | 17/06/2026 | 17/06/2026 |
+| 5   | - Load model artifact, evaluate trên val set: ROC-AUC, Recall, F1, Precision, FNR, Accuracy <br> - Sinh confusion matrix + ROC curve (matplotlib, save PNG) | 18/06/2026 | 19/06/2026 |
+| 6   | - Verify AUC ≥ 0.84 và Recall ≥ 0.65 (yêu cầu brief) <br> - Nếu OK, document instance type + training time + cost cho tuần 3 | 19/06/2026 | 19/06/2026 |
 
 
 ### Thành quả tuần 3:

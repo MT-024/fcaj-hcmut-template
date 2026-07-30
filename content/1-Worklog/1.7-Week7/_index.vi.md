@@ -1,6 +1,6 @@
 ---
 title: "Tuần 7"
-date: 2024-01-01
+date: 2026-07-13
 weight: 7
 chapter: false
 pre: " <b> 1.7. </b> "
@@ -30,11 +30,11 @@ reportHeadings:
 ### Công việc cần làm trong tuần:
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành |
 | --- | --------- | ------------ | --------------- |
-| 2   | - Đọc brief: drift-generation recipe (shift distribution trên một số feature) <br> - Viết `generate_drift.py` sinh batch drifted (5–10% feature bị perturb) | 16/09/2025 | 16/09/2025 |
-| 3   | - Confirm Data Capture đang BẬT (setup tuần 5) → S3 path `s3://.../capture/` | 17/09/2025 | 17/09/2025 |
-| 4   | - Tạo EventBridge rule: mỗi 1 giờ → trigger Processing Job <br> - Processing Job đọc captured JSON, tính PSI/KL divergence so với baseline | 18/09/2025 | 19/09/2025 |
-| 5   | - Đẩy custom metric lên CloudWatch: `feature_drift_psi`, `prediction_drift_psi` <br> - Set CloudWatch alarm: PSI > 0.2 → SNS alert | 19/09/2025 | 20/09/2025 |
-| 6   | - Chạy drift generation, gửi drifted traffic tới endpoint, verify alarm fire <br> - Document pipeline thủ công (vì Model Monitor có thể không available) | 20/09/2025 | 20/09/2025 |
+| 2   | - Đọc brief: drift-generation recipe (shift distribution trên một số feature) <br> - Viết `generate_drift.py` sinh batch drifted (5–10% feature bị perturb) | 13/07/2026 | 13/07/2026 |
+| 3   | - Confirm Data Capture đang BẬT (setup tuần 5) → S3 path `s3://.../capture/` | 14/07/2026 | 14/07/2026 |
+| 4   | - Tạo EventBridge rule: mỗi 1 giờ → trigger Processing Job <br> - Processing Job đọc captured JSON, tính PSI/KL divergence so với baseline | 15/07/2026 | 16/07/2026 |
+| 5   | - Đẩy custom metric lên CloudWatch: `feature_drift_psi`, `prediction_drift_psi` <br> - Set CloudWatch alarm: PSI > 0.2 → SNS alert | 16/07/2026 | 17/07/2026 |
+| 6   | - Chạy drift generation, gửi drifted traffic tới endpoint, verify alarm fire <br> - Document pipeline thủ công (vì Model Monitor có thể không available) | 17/07/2026 | 17/07/2026 |
 
 
 ### Thành quả tuần 7:

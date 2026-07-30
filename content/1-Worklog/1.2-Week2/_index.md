@@ -1,6 +1,6 @@
 ---
 title: "Week 2 Worklog"
-date: 2024-01-01
+date: 2026-06-08
 weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
@@ -30,11 +30,11 @@ reportHeadings:
 ### Tasks to be carried out this week:
 | Day | Task | Start Date | Completion Date |
 | --- | ---- | ---------- | --------------- |
-| 2   | - Read `Nội dung.docx` brief carefully: 8-week plan, budget cap 200 USD, IAM scope, S3 paths <br> - Skim `CLAUDE.md` constraints (data schema, processed splits 80/10/10) | 08/12/2025 | 08/12/2025 |
-| 3   | - Inspect `raw/heart_attack_dataset.csv` (7000 rows × 22 cols) <br> - Identify missing-value columns (smoking_status, cholesterol, oldpeak, etc.) <br> - Verify schema constraints: age 18–100, fasting_blood_sugar ∈ {0,1}, num_major_vessels 0–3 | 08/13/2025 | 08/13/2025 |
-| 4   | - Write `preprocess.py` with sklearn ColumnTransformer: StandardScaler on numeric, OneHotEncoder on nominal, OrdinalEncoder on ordinal, passthrough on binary <br> - Fit ONLY on train split to avoid leakage | 08/14/2025 | 08/15/2025 |
-| 5   | - Generate `processed/{train,val,test}_processed.csv` <br> - Verify column prefixes: `num__`, `norm_num__`, `bin__`, `nom__`, `ord__` <br> - Save fitted `preprocessor.joblib` for later reuse | 08/15/2025 | 08/16/2025 |
-| 6   | - Create S3 bucket `s3://heart-risk-mlops-<account-id>/` in `ap-southeast-1` <br> - Create SageMaker execution IAM role with least-privilege (S3 + logs + SageMaker + PassRole only) <br> - Add lifecycle rule: logs/artifacts expire after 30 days | 08/16/2025 | 08/16/2025 |
+| 2   | - Read `Nội dung.docx` brief carefully: 8-week plan, budget cap 200 USD, IAM scope, S3 paths <br> - Skim `CLAUDE.md` constraints (data schema, processed splits 80/10/10) | 06/08/2026 | 06/08/2026 |
+| 3   | - Inspect `raw/heart_attack_dataset.csv` (7000 rows × 22 cols) <br> - Identify missing-value columns (smoking_status, cholesterol, oldpeak, etc.) <br> - Verify schema constraints: age 18–100, fasting_blood_sugar ∈ {0,1}, num_major_vessels 0–3 | 06/09/2026 | 06/09/2026 |
+| 4   | - Write `preprocess.py` with sklearn ColumnTransformer: StandardScaler on numeric, OneHotEncoder on nominal, OrdinalEncoder on ordinal, passthrough on binary <br> - Fit ONLY on train split to avoid leakage | 06/10/2026 | 06/11/2026 |
+| 5   | - Generate `processed/{train,val,test}_processed.csv` <br> - Verify column prefixes: `num__`, `norm_num__`, `bin__`, `nom__`, `ord__` <br> - Save fitted `preprocessor.joblib` for later reuse | 06/11/2026 | 06/12/2026 |
+| 6   | - Create S3 bucket `s3://heart-risk-mlops-<account-id>/` in `ap-southeast-1` <br> - Create SageMaker execution IAM role with least-privilege (S3 + logs + SageMaker + PassRole only) <br> - Add lifecycle rule: logs/artifacts expire after 30 days | 06/12/2026 | 06/12/2026 |
 
 
 ### Week 2 Achievements:

@@ -1,6 +1,6 @@
 ---
 title: "Week 3 Worklog"
-date: 2024-01-01
+date: 2026-06-15
 weight: 3
 chapter: false
 pre: " <b> 1.3. </b> "
@@ -30,11 +30,11 @@ reportHeadings:
 ### Tasks to be carried out this week:
 | Day | Task | Start Date | Completion Date |
 | --- | ---- | ---------- | --------------- |
-| 2   | - Re-read brief: XGBoost config pinned (objective=binary:logistic, eval_metric=auc, num_round=150, max_depth=5, eta=0.1, subsample=0.8, colsample_bytree=0.8, min_child_weight=2) <br> - Load processed train/val, verify shape, target balance | 19/08/2025 | 19/08/2025 |
-| 3   | - Write `train.py` for SageMaker Training Job: load preprocessor.joblib, train XGBoost with pinned params, save `model.tar.gz` to S3 <br> - Choose `ml.t3.medium` instance (test if 2 vCPU + 4 GB RAM is enough) | 20/08/2025 | 21/08/2025 |
-| 4   | - Launch first Training Job via SageMaker Python SDK <br> - Verify training job finishes without error | 21/08/2025 | 21/08/2025 |
-| 5   | - Load model artifact, evaluate on val set: ROC-AUC, Recall, F1, Precision, FNR, Accuracy <br> - Generate confusion matrix + ROC curve (matplotlib, save PNG) | 22/08/2025 | 23/08/2025 |
-| 6   | - Verify AUC ≥ 0.84 and Recall ≥ 0.65 (brief requirements) <br> - If metrics OK, document instance type + training time + cost for week 3 | 23/08/2025 | 23/08/2025 |
+| 2   | - Re-read brief: XGBoost config pinned (objective=binary:logistic, eval_metric=auc, num_round=150, max_depth=5, eta=0.1, subsample=0.8, colsample_bytree=0.8, min_child_weight=2) <br> - Load processed train/val, verify shape, target balance | 06/15/2026 | 06/15/2026 |
+| 3   | - Write `train.py` for SageMaker Training Job: load preprocessor.joblib, train XGBoost with pinned params, save `model.tar.gz` to S3 <br> - Choose `ml.t3.medium` instance (test if 2 vCPU + 4 GB RAM is enough) | 06/16/2026 | 06/17/2026 |
+| 4   | - Launch first Training Job via SageMaker Python SDK <br> - Verify training job finishes without error | 06/17/2026 | 06/17/2026 |
+| 5   | - Load model artifact, evaluate on val set: ROC-AUC, Recall, F1, Precision, FNR, Accuracy <br> - Generate confusion matrix + ROC curve (matplotlib, save PNG) | 06/18/2026 | 06/19/2026 |
+| 6   | - Verify AUC ≥ 0.84 and Recall ≥ 0.65 (brief requirements) <br> - If metrics OK, document instance type + training time + cost for week 3 | 06/19/2026 | 06/19/2026 |
 
 
 ### Week 3 Achievements:

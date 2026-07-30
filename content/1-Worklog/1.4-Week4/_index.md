@@ -1,6 +1,6 @@
 ---
 title: "Week 4 Worklog"
-date: 2024-01-01
+date: 2026-06-22
 weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
@@ -30,11 +30,11 @@ reportHeadings:
 ### Tasks to be carried out this week:
 | Day | Task | Start Date | Completion Date |
 | --- | ---- | ---------- | --------------- |
-| 2   | - Read brief HPO search space: `max_depth∈[3,7]`, `eta∈[0.03,0.2]`, `subsample∈[0.7,1.0]`, `colsample_bytree∈[0.7,1.0]`, `min_child_weight∈[1,10]` | 26/08/2025 | 26/08/2025 |
-| 3   | - Write HPO tuner config (`HyperparameterTuner` with `Random` strategy, objective=validation:auc) <br> - Set `max_jobs=6`, `max_parallel_jobs=1` (mandatory from brief) | 27/08/2025 | 28/08/2025 |
-| 4   | - Launch HPO job, monitor progress via SageMaker console | 28/08/2025 | 28/08/2025 |
-| 5   | - Wait for all 6 trials to finish (~2 hours with `max_parallel_jobs=1`) | 29/08/2025 | 29/08/2025 |
-| 6   | - Extract best trial hyperparameters + validation AUC <br> - Compare with week 3 baseline: did HPO improve AUC/Recall? <br> - Document cost of HPO run | 30/08/2025 | 30/08/2025 |
+| 2   | - Read brief HPO search space: `max_depth∈[3,7]`, `eta∈[0.03,0.2]`, `subsample∈[0.7,1.0]`, `colsample_bytree∈[0.7,1.0]`, `min_child_weight∈[1,10]` | 06/22/2026 | 06/22/2026 |
+| 3   | - Write HPO tuner config (`HyperparameterTuner` with `Random` strategy, objective=validation:auc) <br> - Set `max_jobs=6`, `max_parallel_jobs=1` (mandatory from brief) | 06/23/2026 | 06/24/2026 |
+| 4   | - Launch HPO job, monitor progress via SageMaker console | 06/24/2026 | 06/24/2026 |
+| 5   | - Wait for all 6 trials to finish (~2 hours with `max_parallel_jobs=1`) | 06/25/2026 | 06/25/2026 |
+| 6   | - Extract best trial hyperparameters + validation AUC <br> - Compare with week 3 baseline: did HPO improve AUC/Recall? <br> - Document cost of HPO run | 06/26/2026 | 06/26/2026 |
 
 
 ### Week 4 Achievements:

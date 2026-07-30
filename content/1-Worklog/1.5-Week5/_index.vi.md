@@ -1,6 +1,6 @@
 ---
 title: "Tuần 5"
-date: 2024-01-01
+date: 2026-06-29
 weight: 5
 chapter: false
 pre: " <b> 1.5. </b> "
@@ -30,11 +30,11 @@ reportHeadings:
 ### Công việc cần làm trong tuần:
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành |
 | --- | --------- | ------------ | --------------- |
-| 2   | - Tạo Model Package Group `heart-attack-risk-models` trong SageMaker <br> - Register best HPO model làm Model Package v1 | 02/09/2025 | 02/09/2025 |
-| 3   | - Viết inference script `inference.py` (load preprocessor + XGBoost) <br> - Đóng gói `model.tar.gz` gồm inference.py + xgb_model.json + preprocessor.joblib | 03/09/2025 | 04/09/2025 |
-| 4   | - Deploy Endpoint `heart-risk-endpoint` trên `ml.t2.medium` (hoặc `ml.t3.medium`) <br> - Bật Data Capture (sampling_percentage=100, capture_options=[Input, Output]) | 04/09/2025 | 05/09/2025 |
-| 5   | - Test endpoint với sample patients từ `processed/test_processed.csv` <br> - Verify response có disclaimer `"Educational demonstration only; not a medical diagnosis."` | 05/09/2025 | 06/09/2025 |
-| 6   | - Cleanup: xóa endpoint sau demo (kỷ luật chi phí — endpoint 24/7 ≈ 35 USD/tháng) <br> - Document endpoint lifecycle: create-on-demo, delete-after-demo | 06/09/2025 | 06/09/2025 |
+| 2   | - Tạo Model Package Group `heart-attack-risk-models` trong SageMaker <br> - Register best HPO model làm Model Package v1 | 29/06/2026 | 29/06/2026 |
+| 3   | - Viết inference script `inference.py` (load preprocessor + XGBoost) <br> - Đóng gói `model.tar.gz` gồm inference.py + xgb_model.json + preprocessor.joblib | 30/06/2026 | 01/07/2026 |
+| 4   | - Deploy Endpoint `heart-risk-endpoint` trên `ml.t2.medium` (hoặc `ml.t3.medium`) <br> - Bật Data Capture (sampling_percentage=100, capture_options=[Input, Output]) | 01/07/2026 | 02/07/2026 |
+| 5   | - Test endpoint với sample patients từ `processed/test_processed.csv` <br> - Verify response có disclaimer `"Educational demonstration only; not a medical diagnosis."` | 02/07/2026 | 03/07/2026 |
+| 6   | - Cleanup: xóa endpoint sau demo (kỷ luật chi phí — endpoint 24/7 ≈ 35 USD/tháng) <br> - Document endpoint lifecycle: create-on-demo, delete-after-demo | 03/07/2026 | 03/07/2026 |
 
 
 ### Thành quả tuần 5:

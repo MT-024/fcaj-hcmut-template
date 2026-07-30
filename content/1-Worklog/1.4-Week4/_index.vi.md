@@ -1,6 +1,6 @@
 ---
 title: "Tuần 4"
-date: 2024-01-01
+date: 2026-06-22
 weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
@@ -30,11 +30,11 @@ reportHeadings:
 ### Công việc cần làm trong tuần:
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành |
 | --- | --------- | ------------ | --------------- |
-| 2   | - Đọc HPO search space trong brief: `max_depth∈[3,7]`, `eta∈[0.03,0.2]`, `subsample∈[0.7,1.0]`, `colsample_bytree∈[0.7,1.0]`, `min_child_weight∈[1,10]` | 26/08/2025 | 26/08/2025 |
-| 3   | - Viết HPO tuner config (`HyperparameterTuner` strategy `Random`, objective=validation:auc) <br> - Set `max_jobs=6`, `max_parallel_jobs=1` (bắt buộc theo brief) | 27/08/2025 | 28/08/2025 |
-| 4   | - Chạy HPO job, monitor progress qua SageMaker console | 28/08/2025 | 28/08/2025 |
-| 5   | - Đợi cả 6 trials chạy xong (~2 giờ với `max_parallel_jobs=1`) | 29/08/2025 | 29/08/2025 |
-| 6   | - Lấy best trial hyperparameters + validation AUC <br> - So với baseline tuần 3: HPO có cải thiện AUC/Recall? <br> - Document cost của lần chạy HPO | 30/08/2025 | 30/08/2025 |
+| 2   | - Đọc HPO search space trong brief: `max_depth∈[3,7]`, `eta∈[0.03,0.2]`, `subsample∈[0.7,1.0]`, `colsample_bytree∈[0.7,1.0]`, `min_child_weight∈[1,10]` | 22/06/2026 | 22/06/2026 |
+| 3   | - Viết HPO tuner config (`HyperparameterTuner` strategy `Random`, objective=validation:auc) <br> - Set `max_jobs=6`, `max_parallel_jobs=1` (bắt buộc theo brief) | 23/06/2026 | 24/06/2026 |
+| 4   | - Chạy HPO job, monitor progress qua SageMaker console | 24/06/2026 | 24/06/2026 |
+| 5   | - Đợi cả 6 trials chạy xong (~2 giờ với `max_parallel_jobs=1`) | 25/06/2026 | 25/06/2026 |
+| 6   | - Lấy best trial hyperparameters + validation AUC <br> - So với baseline tuần 3: HPO có cải thiện AUC/Recall? <br> - Document cost của lần chạy HPO | 26/06/2026 | 26/06/2026 |
 
 
 ### Thành quả tuần 4:
