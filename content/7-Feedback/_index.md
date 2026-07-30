@@ -1,48 +1,50 @@
 ---
 title: "Sharing and Feedback"
-date: 2024-01-01
+date: 2026-07-30
 weight: 7
-chapter: false
+chapter: true
 pre: " <b> 7. </b> "
-includeInReport: false
+includeInReport: true
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
+## Sharing and Feedback
 
-> Here, you can freely share your personal opinions about your experience participating in the First Cloud AI Journey program. This will help the FCAJ team improve any shortcomings based on the following aspects:
+### 1. What I shared with the community
 
-### Overall Evaluation
+- **3 published blog posts** on AWS Vietnam community channels (titles in Section 3.1–3.3):
+  - Lambda cost patterns for sporadic workloads.
+  - SageMaker cost patterns and budget leaks.
+  - Designing a 200 USD cost guardrail with AWS Budgets + SNS.
+- **5 workshop deliverables** in `5.3-S3-buckets` through `5.7-SageMaker-MLOps` (this template). The workshop series itself is shared as open educational content under the FCAJ program.
 
-**1. Working Environment**  
-The working environment is very friendly and open. FCAJ members are always willing to help whenever I encounter difficulties, even outside working hours. The workspace is tidy and comfortable, helping me focus better. However, I think it would be nice to have more social gatherings or team bonding activities to strengthen relationships.
+### 2. Feedback I received during the internship
 
-**2. Support from Mentor / Team Admin**  
-The mentor provides very detailed guidance, explains clearly when I don’t understand, and always encourages me to ask questions. The admin team supports administrative tasks, provides necessary documents, and creates favorable conditions for me to work effectively. I especially appreciate that the mentor allows me to try and solve problems myself instead of just giving the answer.
+**From mentor (week 4):**
+- *"Scope your endpoint to demo windows only. Real-Time endpoints will eat your budget before drift detection even kicks in."*
+- Action taken: switched from Real-Time to Serverless Inference; documented the rationale in the proposal.
 
-**3. Relevance of Work to Academic Major**  
-The tasks I was assigned align well with the knowledge I learned at university, while also introducing me to new areas I had never encountered before. This allowed me to both strengthen my foundational knowledge and gain practical skills.
+**From peer reviews (week 6):**
+- *"Your HPO search space is wider than it needs to be. With only 6 trials, every extra dimension hurts."*
+- Action taken: reduced HPO search space from 5 dimensions to 3 (kept `max_depth`, `eta`, `min_child_weight`; dropped `subsample` and `colsample_bytree`).
 
-**4. Learning & Skill Development Opportunities**  
-During the internship, I learned many new skills such as using project management tools, teamwork skills, and professional communication in a corporate environment. The mentor also shared valuable real-world experiences that helped me better plan my career path.
+**From event attendees (FCAJ x AABW hackathon, week 8):**
+- *"The 200 USD guardrail pattern you wrote about in Blog 3.3 — would it work for a workload with continuous inference?"*
+- Honest answer: no — for continuous inference you'd want Savings Plans or a Spot-based Real-Time endpoint, not the same SNS-based guardrail. Captured as a future blog idea.
 
-**5. Company Culture & Team Spirit**  
-The company culture is very positive: everyone respects each other, works seriously but still keeps things enjoyable. When there are urgent projects, everyone works together and supports one another regardless of their position. This made me feel like a real part of the team, even as an intern.
+### 3. What I wish I had known earlier
 
-**6. Internship Policies / Benefits**  
-The company provides an internship allowance and offers flexible working hours when needed. In addition, having the opportunity to join internal training sessions is a big plus.
+- **Data Capture must be enabled at endpoint creation time**, not retroactively. I lost 2 days of buffer in week 7 because of this.
+- **Model Monitor needs a baseline**, and the baseline statistics job runs synchronously — plan for 15–30 min wall-clock before drift detection is "live."
+- **The `ap-southeast-1` SageMaker Studio domain** has a slightly different console layout than `us-east-1` screenshots in the official docs. Don't blindly follow US-region screenshots.
 
----
+### 4. Suggestions for future cohorts
 
-### Additional Questions
-- What did you find **most satisfying** during your internship?  
-- What do you think the company **should improve** for future interns?  
-- If recommending to a friend, would you **suggest they intern here**? Why or why not?  
+- Capstone brief should ship with a **pre-built cost guardrail template** (CloudFormation / CDK), so interns don't reinvent AWS Budgets + SNS wiring in week 1.
+- Add a **dedicated week for "production-readiness"** — endpoint security (VPC, IAM scope), observability (CloudWatch alarms), and cost dashboards. These were crammed into the last 2 weeks of my run.
+- Encourage interns to **publish at least one blog post by week 4**, not the final week. Writing forces earlier synthesis.
 
----
+### 5. Acknowledgements
 
-### Suggestions & Expectations
-- Do you have any suggestions to improve the internship experience?  
-- Would you like to continue this program in the future?  
-- Any other comments (free sharing):
+Thanks to the FCAJ mentors and the AWS Vietnam community for the 8-week ride — especially the team behind the FCAJ x AABW hackathon for showing how a one-week build can produce shipping products.
+
+<!-- SAGE_MAKER TODO: replace with personal thank-you once you have the full list of mentors. -->
