@@ -23,7 +23,7 @@ includeInReport: false
 > * Việc liệt kê này giúp thể hiện rõ sự tham gia thực tế của bạn, cũng như các kỹ năng mềm và kinh nghiệm bạn đã tích lũy qua từng sự kiện.
 
 
-Trong quá trình thực tập, em đã tham gia 2 events, với mỗi event là một trải nghiệm đáng nhớ với những kiến thức mới, hay và bổ ích, cùng với đó là nhứng món quà và những khoảnh khắc rất tuyệt vời.
+Trong quá trình thực tập, em đã tham gia 5 events, với mỗi event là một trải nghiệm đáng nhớ với những kiến thức mới, hay và bổ ích, cùng với đó là những món quà và những khoảnh khắc rất tuyệt vời.
 
 ### [Event 1](4.1-Event1/)
 &emsp;**Tên sự kiện:** GenAI-powered App-DB Modernization workshop
@@ -44,4 +44,37 @@ Trong quá trình thực tập, em đã tham gia 2 events, với mỗi event là
 &emsp;**Địa điểm:** Tầng 26, tòa nhà Bitexco, số 02 đường Hải Triều, phường Sài Gòn, thành phố Hồ Chí Minh
 
 &emsp;**Vai trò trong sự kiện:** Người tham dự 
+
+---
+
+### [Event 3 — FCAJ Meet 13/06/2026](4.3-FCAJ-Meet-13-06/)
+&emsp;**Tên sự kiện:** FCAJ internal meet-up
+
+&emsp;**Thời gian:** 13/06/2026
+
+&emsp;**Định dạng:** Lightning talks + sharing session
+
+&emsp;**Vai trò:** Người tham dự
+
+---
+
+### [Event 4 — FCAJ Meetup 06/06/2026](4.4-FCAJ-Meetup-06-06/)
+&emsp;**Tên sự kiện:** FCAJ community meetup (6 lightning talks)
+
+&emsp;**Thời gian:** 06/06/2026
+
+&emsp;**Định dạng:** 6 lightning talks (~25 phút mỗi talk)
+
+&emsp;**Vai trò:** Người tham dự
+
+---
+
+### [Event 5 — FCAJ x AABW Hackathon](4.5-FCAJ-x-AABW/)
+&emsp;**Tên sự kiện:** FCAJ x AABW Hackathon (Agentic AI Build Week)
+
+&emsp;**Thời gian:** ~25/07/2026
+
+&emsp;**Định dạng:** 4 nhóm pitch sản phẩm AI dùng AWS services
+
+&emsp;**Vai trò:** Người tham dự
 
