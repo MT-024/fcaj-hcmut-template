@@ -1,95 +1,76 @@
 ---
-title : "VPC Endpoint Policies"
-date : 2024-01-01
-weight : 5
-chapter : false
-pre : " <b> 5.5 </b> "
+title: "Phát hiện drift và CloudWatch alarm (Tuần 7)"
+date: 2026-06-01
+weight: 5
+chapter: false
+pre: " <b> 5.5. </b> "
 ---
 
-Khi bạn tạo một Interface Endpoint  hoặc cổng, bạn có thể đính kèm một chính sách điểm cuối để kiểm soát quyền truy cập vào dịch vụ mà bạn đang kết nối. Chính sách VPC Endpoint là chính sách tài nguyên IAM mà bạn đính kèm vào điểm cuối. Nếu bạn không đính kèm chính sách khi tạo điểm cuối, thì AWS sẽ đính kèm chính sách mặc định cho bạn để cho phép toàn quyền truy cập vào dịch vụ thông qua điểm cuối.
+Tuần 7 bản dựng nhặt các file Data Capture mà tuần 6 đã ghi và trả lời một câu hỏi: *traffic thực đã drift khỏi phân phối training chưa?* Một custom SageMaker Processing Job đảm nhận việc này vì official Model Monitor schedule không xuất ra metric theo feature đúng lúc trong quá trình test.
 
-Bạn có thể tạo chính sách chỉ hạn chế quyền truy cập vào các S3 bucket cụ thể. Điều này hữu ích nếu bạn chỉ muốn một số Bộ chứa S3 nhất định có thể truy cập được thông qua điểm cuối.
+#### 5.5.1 Drift Processing Job
 
-Trong phần này, bạn sẽ tạo chính sách VPC Endpoint hạn chế quyền truy cập vào S3 bucket được chỉ định trong chính sách VPC Endpoint.
+Custom Processing Job chạy theo giờ, được trigger bởi một EventBridge rule trên prefix Data Capture.
 
-![endpoint diagram](/images/5-Workshop/5.5-Policy/s3-bucket-policy.png)
+![Custom Processing Job chạy để phát hiện drift](/images/5-Workshop/W7-01a-custom-processing-job.png)
 
-#### Kết nối tới EC2 và xác minh kết nối tới S3. 
+Script:
 
-1. Bắt đầu một phiên AWS Session Manager mới trên máy chủ có tên là Test-Gateway-Endpoint. Từ phiên này, xác minh rằng bạn có thể liệt kê nội dung của bucket mà bạn đã tạo trong Phần 1: Truy cập S3 từ VPC.
+1. Đọc các file Data Capture JSONL mới nhất từ S3.
+2. Load thống kê `baseline/` do Processing Job tuần 2 tạo ra.
+3. Với numeric feature, tính **standardized mean shift** giữa baseline và current; flag drift nếu `|shift| > 0,5`.
+4. Với categorical feature, tính **total variation distance** giữa phân phối baseline và current; flag drift nếu `TVD > 0,20`.
+5. Ghi một drift report (`reports/drift/<run-id>.json`) và publish hai CloudWatch metric trong namespace **`Custom/HeartRisk`**:
+   - `DriftDetected` — 0 hoặc 1.
+   - `DataQualityViolationCount` — số feature bị drift.
 
-```
-aws s3 ls s3://<your-bucket-name>
-```
-![test](/images/5-Workshop/5.5-Policy/test1.png)
+> Các threshold này là rule PoC minh họa, không phải chuẩn thống kê lâm sàng hay production. Chúng được tài liệu hóa tại đây để bạn đọc biết đã kiểm tra gì và tại sao chọn giá trị đó.
 
-Nội dung của bucket bao gồm hai tệp có dung lượng 1GB đã được tải lên trước đó.
+#### 5.5.2 Drift report — ví dụ một run
 
-2. Tạo một bucket S3 mới; tuân thủ mẫu đặt tên mà bạn đã sử dụng trong Phần 1, nhưng thêm '-2' vào tên. Để các trường khác là mặc định và nhấp vào **Create**.
+![Drift report cho thấy 6/20 feature bị drift](/images/5-Workshop/W7-02-drift-report.png)
 
-![create bucket](/images/5-Workshop/5.5-Policy/create-bucket.png)
+Run ví dụ cho thấy:
 
-3. Tạo bucket thành công.
+- Baseline rows: 4.900
+- Current rows: 7.000
+- Features checked: 20
+- Violations: 6
+- Drift detected: true
 
-![Success](/images/5-Workshop/5.5-Policy/create-bucket-success.png)
+Sáu feature bị drift: `age`, `resting_bp`, `cholesterol`, `bmi`, `smoking_status`, `stress_level`. Cùng sáu feature này xuất hiện trong danh sách feature chi tiết (không hiển thị ở trên — chuyển vào phụ lục trong report).
 
-Policy mặc định cho phép truy cập vào tất cả các S3 Buckets thông qua VPC endpoint.
+#### 5.5.3 CloudWatch metrics
 
-4. Trong giao diện **Edit Policy**, sao chép và dán theo policy sau, thay thế yourbucketname-2 với tên bucket thứ hai của bạn. Policy này sẽ cho phép truy cập đến bucket mới thông qua VPC endpoint, nhưng không cho phép truy cập đến các bucket còn lại. Chọn **Save** để kích hoạt policy.
+![DriftDetected và DataQualityViolationCount được publish trong Custom/HeartRisk](/images/5-Workshop/W7-04-custom-metrics.png)
 
+Giá trị hiển thị:
 
-```
-{
-  "Id": "Policy1631305502445",
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "Stmt1631305501021",
-      "Action": "s3:*",
-      "Effect": "Allow",
-      "Resource": [
-      				"arn:aws:s3:::yourbucketname-2",
-       				"arn:aws:s3:::yourbucketname-2/*"
-       ],
-      "Principal": "*"
-    }
-  ]
-}
-```
+- `DriftDetected = 1`
+- `DataQualityViolationCount = 6`
+- `Namespace = Custom/HeartRisk`
 
-![custom policy](/images/5-Workshop/5.5-Policy/policy2.png)
+Hai metric này là hợp đồng mà alarm được dựng trên.
 
-Cấu hình policy thành công.
+#### 5.5.4 CloudWatch Alarm
 
-![success](/images/5-Workshop/5.5-Policy/success.png)
+![CloudWatch Alarm chuyển sang ALARM khi DriftDetected đạt 1](/images/5-Workshop/W7-05-custom-alarm.png)
 
-5. Từ session của bạn trên Test-Gateway-Endpoint instance, kiểm tra truy cập đến S3 bucket bạn tạo ở bước đầu
+Alarm dùng:
 
-```
-aws s3 ls s3://<yourbucketname>
-```
+- Statistic: **Maximum**
+- Threshold: **1**
+- Comparison: **GreaterThanOrEqualToThreshold**
+- Missing data: **ignore** (custom Processing Job chỉ publish khi hoàn thành, nên missing data là bình thường)
 
-Câu lệnh trả về lỗi bởi vì truy cập vào S3 bucket không có quyền trong VPC endpoint policy.
+Khi `DriftDetected = 1` được publish, alarm chuyển sang `ALARM` và một thông báo chạy qua SNS topic đã tạo ở mục 5.2.
 
-![error](/images/5-Workshop/5.5-Policy/error.png)
+#### Điều này mang lại cho dự án
 
-6. Trở lại home directory của bạn trên EC2 instance ```cd~```
+- Một chuỗi cảnh báo chạy được trong budget 200 USD: Data Capture → EventBridge rule theo giờ → custom Processing Job → CloudWatch metrics → CloudWatch alarm → SNS.
+- Không cần managed Model Monitor cho phạm vi này, giữ chi phí có thể dự đoán được.
+- Namespace metric và threshold alarm tạo thành hợp đồng rõ ràng cho khái niệm "drift detected" — dễ mở rộng khi managed Model Monitor trở nên khả dụng.
 
-+ Tạo file ```fallocate -l 1G test-bucket2.xyz ```
-+ Sao chép file lên bucket thứ  2 ```aws s3 cp test-bucket2.xyz s3://<your-2nd-bucket-name>```
+#### Chi phí
 
-![success](/images/5-Workshop/5.5-Policy/test2.png)
-
-Thao tác này được cho phép bởi VPC endpoint policy.
-
-![success](/images/5-Workshop/5.5-Policy/test2-success.png)
-
-Sau đó chúng ta kiểm tra truy cập vào S3 bucket đầu tiên
-
- ```aws s3 cp test-bucket2.xyz s3://<your-1st-bucket-name>```
-
- ![fail](/images/5-Workshop/5.5-Policy/test2-fail.png)
-
- Câu lệnh xảy ra lỗi bởi vì bucket không có quyền truy cập bởi VPC endpoint policy.
-
-Trong phần này, bạn đã tạo chính sách VPC Endpoint cho Amazon S3 và sử dụng AWS CLI để kiểm tra chính sách. Các hoạt động AWS CLI liên quan đến bucket S3 ban đầu của bạn thất bại vì bạn áp dụng một chính sách chỉ cho phép truy cập đến bucket thứ hai mà bạn đã tạo. Các hoạt động AWS CLI nhắm vào bucket thứ hai của bạn thành công vì chính sách cho phép chúng. Những chính sách này có thể hữu ích trong các tình huống khi bạn cần kiểm soát quyền truy cập vào tài nguyên thông qua VPC Endpoint.
+Mỗi run theo giờ của Processing Job tốn vài cent (một `ml.m5.large` chạy ~2 phút). Custom CloudWatch metric cũng vài cent mỗi metric một tháng. Tổng dưới 5 USD cho cả 8 tuần.

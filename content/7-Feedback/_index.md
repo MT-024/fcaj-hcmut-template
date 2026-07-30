@@ -12,15 +12,12 @@ includeInReport: false
 ### Overall Evaluation
 
 **1. Working Environment**
-The FCAJ working environment is supportive and pragmatic. Working on the SageMaker MLOps capstone alone, I could always ping the mentor on Slack when a pipeline step stalled (Data Capture misconfiguration, drift baseline statistics job), and got unblocked within minutes. The weekly review meetings kept me accountable to the 200 USD budget cap and to declaring trade-offs explicitly. The AWS community channels gave me a place to ask architecture questions beyond my mentor's bandwidth. For future cohorts, it would help to have a shared lab notebook (or pinned Slack channel) where interns post a 1-line daily log, so peers can spot blockers earlier.
+The FCAJ working environment is supportive and pragmatic. I could always ping the mentor on Slack when a pipeline step stalled (Data Capture misconfiguration, drift baseline statistics job), and got unblocked within minutes. The weekly review meetings kept me accountable to the 200 USD budget cap and to declaring trade-offs explicitly. The AWS community channels gave me a place to ask architecture questions beyond my mentor's bandwidth. For future cohorts, it would help to have a shared lab notebook (or pinned Slack channel) where interns post a 1-line daily log, so peers can spot blockers earlier.
 
-**2. Support from Mentor / Team Admin**
-My mentor was rigorous without being prescriptive. Two pieces of feedback shaped the whole capstone: *"Scope your endpoint to demo windows only — Real-Time endpoints will eat your budget before drift detection even kicks in"* (week 4) and *"Your HPO search space is wider than it needs to be — with only 6 trials, every extra dimension hurts"* (week 6). Both pushed me to defend choices with numbers rather than defer to defaults. The admin team kept the budget dashboard and weekly check-in template predictable, which let me focus on engineering rather than logistics.
-
-**3. Relevance of Work to Academic Major**
+**2. Relevance of Work to Academic Major**
 The capstone sits exactly where my coursework left off: I had learned XGBoost, preprocessing, and basic cloud concepts in class, but had never stitched them into a single end-to-end MLOps pipeline on AWS. SageMaker Processing → Training → HPO → Model Registry → Serverless Endpoint → Data Capture → Drift Detection was the missing integration layer. The dataset (heart-attack-risk prediction, 7000 rows) was small enough to stay inside the 200 USD cap but realistic enough that data-quality choices mattered — class balance, missing-value handling, schema validation. This is closer to a real production ML setup than any course assignment I've done.
 
-**4. Learning & Skill Development Opportunities**
+**3. Learning & Skill Development Opportunities**
 Concrete skills I picked up beyond the syllabus:
 - **SageMaker MLOps pipeline as code**: ProcessingStep / TrainingStep / HPOStep / RegisterModelStep chained via Kubeflow, executed end-to-end with one `pipeline.start()`.
 - **Cost engineering**: Spot Training, Serverless Inference, lifecycle rules on logs/artifacts, `max_parallel_jobs=1` for HPO — and the discipline to **delete the endpoint between demos** to avoid the ~35 USD/month idle bill.

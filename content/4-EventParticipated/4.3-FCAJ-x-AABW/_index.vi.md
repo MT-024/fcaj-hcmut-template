@@ -15,7 +15,7 @@ includeInReport: false
 | --- | --- |
 | **Tên sự kiện** | FCAJ x AABW Hackathon — Agentic AI Build Week |
 | **Thời gian** | ~25/07/2026 (xác nhận lại với BTC nếu sai) |
-| **Địa điểm** | <!-- TODO: địa điểm thực tế (vd: TP.HCM hoặc Hà Nội) --> |
+| **Địa điểm** |Tầng 26, tòa nhà Bitexco, số 02 đường Hải Triều, phường Sài Gòn, thành phố Hồ Chí Minh <!-- TODO: địa điểm thực tế (vd: TP.HCM hoặc Hà Nội) --> |
 | **Vai trò** | Người tham dự |
 | **Định dạng** | 4 nhóm pitch sản phẩm AI dùng AWS services, mỗi nhóm trình bày sản phẩm end-to-end |
 

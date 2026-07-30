@@ -15,7 +15,7 @@ Trong suốt 8 tuần thực tập FCAJ, em đã tham gia **3 sự kiện** — 
 
 &emsp;**Thời gian:** 13/06/2026
 
-&emsp;**Địa điểm:** <!-- TODO: cập nhật địa điểm thực tế -->
+&emsp;**Địa điểm:** Tầng 26, tòa nhà Bitexco, số 02 đường Hải Triều, phường Sài Gòn, thành phố Hồ Chí Minh<!-- TODO: cập nhật địa điểm thực tế -->
 
 &emsp;**Vai trò:** Người tham dự
 
@@ -28,7 +28,7 @@ Trong suốt 8 tuần thực tập FCAJ, em đã tham gia **3 sự kiện** — 
 
 &emsp;**Thời gian:** 06/06/2026
 
-&emsp;**Địa điểm:** <!-- TODO: cập nhật địa điểm thực tế -->
+&emsp;**Địa điểm:** Tầng 26, tòa nhà Bitexco, số 02 đường Hải Triều, phường Sài Gòn, thành phố Hồ Chí Minh<!-- TODO: cập nhật địa điểm thực tế -->
 
 &emsp;**Vai trò:** Người tham dự
 
@@ -41,7 +41,7 @@ Trong suốt 8 tuần thực tập FCAJ, em đã tham gia **3 sự kiện** — 
 
 &emsp;**Thời gian:** ~25/07/2026
 
-&emsp;**Địa điểm:** <!-- TODO: cập nhật địa điểm thực tế -->
+&emsp;**Địa điểm:** Tầng 26, tòa nhà Bitexco, số 02 đường Hải Triều, phường Sài Gòn, thành phố Hồ Chí Minh<!-- TODO: cập nhật địa điểm thực tế -->
 
 &emsp;**Vai trò:** Người tham dự
 

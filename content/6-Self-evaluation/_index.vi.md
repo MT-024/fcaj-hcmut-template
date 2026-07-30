@@ -2,71 +2,38 @@
 title: "Tự đánh giá"
 date: 2026-07-30
 weight: 6
-chapter: true
+chapter: false
 pre: " <b> 6. </b> "
-includeInReport: true
-reportType: "self-evaluation"
-reportTableColumns: ["tiêu_chí", "điểm", "minh_chứng"]
-reportHeadings: ["Tiêu chí", "Điểm (1-5)", "Minh chứng"]
+includeInReport: false
 ---
 
-## Tự đánh giá
+Trong kỳ thực tập kéo dài 8 tuần tại FCAJ, em đã có cơ hội học hỏi, thực hành và áp dụng những kiến thức đã học ở trường vào môi trường làm việc thực tế.
 
-Phần này nhìn lại 8 tuần thực tập tại FCAJ xuyên suốt đồ án SageMaker MLOps.
+Em đã tham gia thiết kế và triển khai dự án capstone SageMaker MLOps dự đoán nguy cơ đau tim, qua đó cải thiện các kỹ năng về vận hành học máy (MLOps), tối ưu hóa chi phí đám mây AWS, tích hợp API và giao tiếp kỹ thuật.
 
-### 1. Chiều sâu kỹ thuật — **Điểm: <!-- SAGE_MAKER TODO: điểm 1-5 -->/5**
+Về thái độ làm việc, em luôn cố gắng hoàn thành tốt công việc, tuân thủ các ràng buộc của dự án (như ngân sách nghiêm ngặt 200 USD) và tích cực tham gia vào cộng đồng AWS Việt Nam để chia sẻ kiến thức, nâng cao hiệu quả công việc.
 
-**Minh chứng:**
-- Thiết kế và hiện thực pipeline SageMaker MLOps: Processing Job → Training Job → HPO (tối đa 6 trials, `max_parallel_jobs=1`) → Model Registry → Serverless Endpoint → Data Capture → Giám sát drift.
-- Cấu hình SageMaker Model Monitor trên dữ liệu capture; ngưỡng hiệu chỉnh cho bộ dữ liệu giáo dục (dự đoán nguy cơ đau tim, 7000 dòng).
-- Dựng API gateway trước SageMaker endpoint, kèm disclaimer cố định: *"Educational demonstration only; not a medical diagnosis."*
-- Giữ trong hạn mức **200 USD**, một region (`ap-southeast-1`), không GPU, không NAT Gateway.
+Để nhìn nhận khách quan về kỳ thực tập vừa qua, em xin tự đánh giá bản thân dựa trên các tiêu chí sau:
 
-<!-- SAGE_MAKER TODO: điền số liệu thực tế sau khi pipeline chạy — ví dụ thời gian training, tổng chi phí AWS đến hiện tại, số lần cảnh báo drift. -->
 
-### 2. Kỷ luật chi phí — **Điểm: 5/5**
+| STT | Tiêu chí                            | Mô tả                                                                                            | Tốt | Khá | Trung bình |
+| --- | ----------------------------------- | ------------------------------------------------------------------------------------------------ | --- | --- | ---------- |
+| 1   | **Kiến thức và kỹ năng chuyên môn** | Hiểu biết về ngành, áp dụng kiến thức vào thực tế, kỹ năng sử dụng công cụ, chất lượng công việc | ✅   | ☐   | ☐          |
+| 2   | **Khả năng học hỏi**                | Tiếp thu kiến thức mới, học hỏi nhanh                                                            | ☐   | ✅   | ☐          |
+| 3   | **Chủ động**                        | Tự tìm hiểu, nhận nhiệm vụ mà không chờ chỉ dẫn                                                  | ✅   | ☐   | ☐          |
+| 4   | **Tinh thần trách nhiệm**           | Hoàn thành công việc đúng hạn, đảm bảo chất lượng                                                | ✅   | ☐   | ☐          |
+| 5   | **Kỷ luật**                         | Tuân thủ giờ giấc, nội quy, quy trình làm việc                                                   | ☐   | ☐   | ✅          |
+| 6   | **Tính cầu tiến**                   | Sẵn sàng nhận feedback và cải thiện bản thân                                                     | ☐   | ✅   | ☐          |
+| 7   | **Giao tiếp**                       | Trình bày ý tưởng, báo cáo công việc rõ ràng                                                     | ☐   | ✅   | ☐          |
+| 8   | **Hợp tác nhóm**                    | Làm việc hiệu quả với đồng nghiệp, tham gia nhóm                                                 | ✅   | ☐   | ☐          |
+| 9   | **Ứng xử chuyên nghiệp**            | Tôn trọng đồng nghiệp, đối tác, môi trường làm việc                                              | ✅   | ☐   | ☐          |
+| 10  | **Tư duy giải quyết vấn đề**        | Nhận diện vấn đề, đề xuất giải pháp, sáng tạo                                                    | ☐   | ✅   | ☐          |
+| 11  | **Đóng góp vào dự án/tổ chức**      | Hiệu quả công việc, sáng kiến cải tiến, ghi nhận từ team                                         | ✅   | ☐   | ☐          |
+| 12  | **Tổng thể**                        | Đánh giá chung về toàn bộ quá trình thực tập                                                     | ✅   | ☐   | ☐          |
 
-**Minh chứng:**
-- Chọn Serverless Inference (không tính phí khi không dùng) thay vì Real-Time endpoint (tính theo giờ).
-- `max_parallel_jobs=1` cho HPO để tránh chi phí đột biến.
-- Endpoint chỉ bật trong khoảng demo / test.
-- Cost guardrails đã được đề cập trong 2/3 bài blog đã đăng (Lambda cost, 200 USD budget).
+### Cần cải thiện
 
-### 3. Truyền thông (blog) — **Điểm: <!-- SAGE_MAKER TODO: điểm 1-5 -->/5**
-
-**Minh chứng:**
-- Đã đăng 3 bài kỹ thuật trên cộng đồng AWS Việt Nam:
-  - **Blog 3.1 — Các mẫu chi phí Lambda cho workload không liên tục** (tham khảo tài liệu giá AWS Lambda).
-  - **Blog 3.2 — Các mẫu chi phí SageMaker và chỗ rò rỉ budget** (tập trung vào Studio + endpoint + HPO).
-  - **Blog 3.3 — Thiết kế cost guardrail 200 USD với AWS Budgets + SNS** (chính ràng buộc của đồ án).
-- Tất cả viết bằng tiếng Việt cho cộng đồng AWS địa phương; mentor review trước khi đăng.
-
-### 4. Tham gia cộng đồng — **Điểm: 4/5**
-
-**Minh chứng:**
-- Tham dự 3 sự kiện tuần 6–8: Meet 13-06-2026, Meetup 06-06-2026, FCAJ x AABW Hackathon.
-- Viết reflection sau mỗi sự kiện (Mục 4.3, 4.4, 4.5).
-- Chưa nộp đề xuất talk của riêng mình — ghi nhận để cải thiện cho khóa sau.
-
-### 5. Quản lý dự án — **Điểm: 4/5**
-
-**Minh chứng:**
-- Kế hoạch 8 tuần theo dõi từng tuần trong Mục 1 (worklog).
-- Giữ scope chặt để không vượt 200 USD; từ chối các tính năng phá budget.
-- Ghi rõ các đánh đổi trong proposal (Mục 2): chọn single-region đơn giản thay vì multi-region failover.
-
-### 6. Hướng cải thiện
-
-- **Tự động hóa end-to-end:** pipeline hiện cần duyệt tay ở Model Registry. Bước tiếp theo: thêm Lambda auto-approve khi validation metrics đạt.
-- **Xử lý drift:** cảnh báo drift đang quan sát nhưng chưa nối vào trigger retrain. Kế hoạch: thêm rule CloudWatch → EventBridge → Pipeline.
-- **Bản tiếng Anh blog:** cả 3 bài hiện chỉ có tiếng Việt. Dịch sang tiếng Anh sẽ tăng phạm vi tiếp cận.
-
-### Tổng kết
-
-| Tiêu chí | Điểm | Minh chứng |
-|---|---|---|
-| Chiều sâu kỹ thuật | TBD | SageMaker MLOps pipeline + drift detection |
-| Kỷ luật chi phí | 5/5 | Giữ 200 USD; serverless endpoint; HPO tuần tự |
-| Truyền thông (blog) | TBD | 3 bài đã đăng trên cộng đồng AWS VN |
-| Tham gia cộng đồng | 4/5 | Tham dự 3 sự kiện; có reflection |
-| Quản lý dự án | 4/5 | Theo dõi 8 tuần; scope chặt |
+* Tự động hóa toàn trình: Chuyển đổi luồng công việc (pipeline) từ việc yêu cầu phê duyệt thủ công trong Model Registry sang sử dụng tự động phê duyệt bằng Lambda khi các chỉ số kiểm tra đạt yêu cầu.  
+* Xử lý trôi dạt dữ liệu: Kết nối các cảnh báo trôi dạt dữ liệu (drift alerts) đã quan sát được với các trình kích hoạt huấn luyện lại tự động thông qua quy trình CloudWatch → EventBridge → Pipeline rule.  
+* Mở rộng phạm vi tiếp cận: Dịch ba bài viết blog kỹ thuật đã xuất bản từ tiếng Việt sang tiếng Anh để tiếp cận được nhiều độc giả hơn.  
+* Gắn kết cộng đồng: Chủ động chuẩn bị và gửi đề xuất diễn thuyết (talk proposal) cho các sự kiện cộng đồng trong tương lai (một điểm thiếu sót đã được ghi nhận và cần bổ sung cho khóa sau).

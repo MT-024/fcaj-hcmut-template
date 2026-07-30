@@ -1,19 +1,76 @@
 ---
-title : "Giới thiệu"
-date : 2024-01-01 
-weight : 1
-chapter : false
-pre : " <b> 5.1. </b> "
+title: "Tổng quan workshop"
+date: 2026-06-01
+weight: 1
+chapter: false
+pre: " <b> 5.1. </b> "
 ---
 
-#### Giới thiệu về VPC Endpoint
+#### Workshop này đề cập tới những gì
 
-+ Điểm cuối VPC (endpoint) là thiết bị ảo. Chúng là các thành phần VPC có thể mở rộng theo chiều ngang, dự phòng và có tính sẵn sàng cao. Chúng cho phép giao tiếp giữa tài nguyên điện toán của bạn và dịch vụ AWS mà không gây ra rủi ro về tính sẵn sàng.
-+ Tài nguyên điện toán đang chạy trong VPC có thể truy cập Amazon S3 bằng cách sử dụng điểm cuối Gateway. Interface Endpoint  PrivateLink có thể được sử dụng bởi tài nguyên chạy trong VPC hoặc tại TTDL.
+Workshop này là nhật ký xây dựng một pipeline MLOps end-to-end cho **bài toán phân loại nhị phân nguy cơ đau tim** trong một AWS account duy nhất, một region duy nhất. Pipeline nhận một tập dữ liệu 7.000 dòng, huấn luyện các mô hình ứng viên, đăng ký các mô hình đạt chuẩn vào SageMaker Model Registry, triển khai một real-time endpoint, wrap endpoint bằng Lambda và API Gateway, giám sát data drift và dọn dẹp tài nguyên chạy liên tục khi kết thúc.
 
-#### Tổng quan về workshop
-Trong workshop này, bạn sẽ sử dụng hai VPC.
-+ **"VPC Cloud"** dành cho các tài nguyên cloud như Gateway endpoint và EC2 instance để kiểm tra.
-+ **"VPC On-Prem"** mô phỏng môi trường truyền thống như nhà máy hoặc trung tâm dữ liệu của công ty. Một EC2 Instance chạy phần mềm StrongSwan VPN đã được triển khai trong "VPC On-prem" và được cấu hình tự động để thiết lập đường hầm VPN Site-to-Site với AWS Transit Gateway. VPN này mô phỏng kết nối từ một vị trí tại TTDL (on-prem) với AWS cloud. Để giảm thiểu chi phí, chỉ một phiên bản VPN được cung cấp để hỗ trợ workshop này. Khi lập kế hoạch kết nối VPN cho production workloads của bạn, AWS khuyên bạn nên sử dụng nhiều thiết bị VPN để có tính sẵn sàng cao.
+Năm trang con ánh xạ tám tuần thực tập:
 
-![overview](/images/5-Workshop/5.1-Workshop-overview/diagram1.png)
+- **5.2 Chuẩn bị** — AWS account, khóa region, IAM role, AWS Budgets và quy tắc tag.
+- **5.3 Tiền xử lý dữ liệu (Tuần 2)** — layout dữ liệu S3, SageMaker Processing Job, chia train/validation/test, preprocessor artifacts.
+- **5.4 Huấn luyện, HPO, endpoint và API (Tuần 3–6)** — Logistic Regression vs XGBoost, HPO, Model Registry, real-time endpoint, Lambda, API Gateway, Data Capture.
+- **5.5 Phát hiện drift và CloudWatch alarm (Tuần 7)** — custom Processing Job, lịch EventBridge, CloudWatch metrics, alarm.
+- **5.6 Pipeline và cleanup (Tuần 8)** — SageMaker Pipeline, quality gate, test failure có chủ đích, script `cleanup.py`.
+
+#### Kiến trúc pipeline (dạng text)
+
+```
+Amazon S3 (raw data)
+        ↓
+SageMaker Processing Job        ← preprocessing + schema check
+        ↓
+train / validation / test / preprocessor artifacts
+        ↓
+Logistic Regression + XGBoost (+ HPO)
+        ↓
+Managed Evaluation (ROC-AUC, F1, recall, precision, confusion matrix)
+        ↓
+Quality Gate (ConditionStep)
+        ↓
+SageMaker Model Registry         ← PendingManualApproval
+        ↓
+Manual Approval
+        ↓
+Real-Time Endpoint (ml.m5.large) ← Data Capture 100%
+        ↓
+AWS Lambda                        ← least-privilege IAM
+        ↓
+Amazon API Gateway (GET /health, POST /predict)
+        ↓
+Client
+
+Đường drift chạy song song:
+Data Capture (S3)
+        ↓
+EventBridge rule theo giờ
+        ↓
+Custom Processing Job (PSI / KL divergence)
+        ↓
+CloudWatch metrics (namespace Custom/HeartRisk)
+        ↓
+CloudWatch Alarm → ALARM khi có drift
+
+SageMaker Pipeline:
+Processing → Training → Evaluation → Condition → Register / Fail
+```
+
+Đây là **luồng logic**, không phải sơ đồ kiến trúc vẽ tay. Sơ đồ kiến trúc tham chiếu nằm ở đầu trang index của workshop.
+
+#### Nguyên tắc kỷ luật chi phí xuyên suốt workshop
+
+- Một region `ap-southeast-1` — không có cross-region transfer.
+- Không dùng instance type GPU.
+- Không dùng NAT Gateway.
+- Spot Training ở mọi nơi hỗ trợ.
+- Real-time endpoint giới hạn trong các cửa sổ demo, dọn bởi `cleanup.py`.
+- Lifecycle rule trên S3 cho logs và artifact tạm.
+- Mọi resource tính phí được gắn tag `Project=heart-risk-mlops`.
+- AWS Budgets alarm ở các mốc 50 / 80 / 100 %.
+
+Đây là những lựa chọn giữ dự án trong cap 200 USD trong khi vẫn chạy được pipeline end-to-end.

@@ -7,24 +7,21 @@ pre: " <b> 7. </b> "
 includeInReport: false
 ---
 
-> Trong phần này, tôi chia sẻ góc nhìn cá nhân về trải nghiệm tham gia chương trình First Cloud AI Journey xuyên suốt 8 tuần đồ án SageMaker MLOps. Những ý kiến này nhằm giúp đội ngũ FCAJ cải thiện các điểm còn hạn chế cho các khóa sau.
+> Trong phần này, em chia sẻ góc nhìn cá nhân về trải nghiệm tham gia chương trình First Cloud AI Journey xuyên suốt 8 tuần đồ án SageMaker MLOps. Những ý kiến này nhằm giúp đội ngũ FCAJ cải thiện các điểm còn hạn chế cho các khóa sau.
 
 ### Đánh giá tổng thể
 
 **1. Môi trường làm việc**
-Môi trường làm việc tại FCAJ hỗ trợ và thực tế. Làm đồ án SageMaker MLOps một mình, mỗi khi một bước pipeline bị kẹt (cấu hình Data Capture sai, job thống kê baseline của drift), tôi đều có thể nhắn mentor trên Slack và được gỡ vướng trong vài phút. Buổi review hàng tuần giúp tôi chịu trách nhiệm với budget cap 200 USD và buộc phải công khai các đánh đổi. Các kênh cộng đồng AWS là nơi tôi có thể đặt câu hỏi kiến trúc vượt ra ngoài bandwidth của mentor. Cho các khóa sau, sẽ tốt hơn nếu có một **sổ lab chung** (hoặc kênh Slack được pin) nơi các intern đăng log 1 dòng mỗi ngày, để các bạn cùng khóa phát hiện blocker sớm hơn.
+Môi trường làm việc tại FCAJ hỗ trợ và thực tế. Mỗi khi một bước pipeline bị kẹt (cấu hình Data Capture sai, job thống kê baseline của drift), em đều có thể nhắn mentor trên Slack và được gỡ vướng trong vài phút. Buổi review hàng tuần giúp em chịu trách nhiệm với budget cap 200 USD và buộc phải công khai các đánh đổi. Các kênh cộng đồng AWS là nơi em có thể đặt câu hỏi kiến trúc vượt ra ngoài bandwidth của mentor. Cho các khóa sau, sẽ tốt hơn nếu có một **sổ lab chung** (hoặc kênh Slack được pin) nơi các intern đăng log 1 dòng mỗi ngày, để các bạn cùng khóa phát hiện blocker sớm hơn.
 
-**2. Hỗ trợ từ Mentor / Admin**
-Mentor của tôi nghiêm khắc nhưng không áp đặt. Hai góp ý đã định hình toàn bộ đồ án: *"Scope your endpoint to demo windows only — Real-Time endpoints will eat your budget before drift detection even kicks in"* (tuần 4) và *"Your HPO search space is wider than it needs to be — with only 6 trials, every extra dimension hurts"* (tuần 6). Cả hai buộc tôi bảo vệ quyết định bằng số liệu thay vì cứ đi theo default. Đội admin giữ cho budget dashboard và template check-in hàng tuần ổn định, để tôi tập trung vào kỹ thuật thay vì lo logistics.
+**2. Mức liên quan tới chuyên ngành**
+Đồ án nằm đúng vào chỗ mà chương trình học để lại: em đã học XGBoost, tiền xử lý, và khái niệm cloud cơ bản ở trường, nhưng chưa bao giờ ghép chúng thành một pipeline MLOps end-to-end trên AWS. SageMaker Processing → Training → HPO → Model Registry → Serverless Endpoint → Data Capture → Drift Detection chính là lớp tích hợp còn thiếu. Dataset (dự đoán nguy cơ đau tim, 7000 dòng) đủ nhỏ để giữ trong cap 200 USD nhưng đủ thực tế để các quyết định chất lượng dữ liệu — class balance, xử lý missing value, validate schema — thực sự có ý nghĩa. Đây là thiết lập gần với production hơn bất kỳ bài tập lớn nào em đã làm ở trường.
 
-**3. Mức liên quan tới chuyên ngành**
-Đồ án nằm đúng vào chỗ mà chương trình học để lại: tôi đã học XGBoost, tiền xử lý, và khái niệm cloud cơ bản ở trường, nhưng chưa bao giờ ghép chúng thành một pipeline MLOps end-to-end trên AWS. SageMaker Processing → Training → HPO → Model Registry → Serverless Endpoint → Data Capture → Drift Detection chính là lớp tích hợp còn thiếu. Dataset (dự đoán nguy cơ đau tim, 7000 dòng) đủ nhỏ để giữ trong cap 200 USD nhưng đủ thực tế để các quyết định chất lượng dữ liệu — class balance, xử lý missing value, validate schema — thực sự có ý nghĩa. Đây là thiết lập gần với production hơn bất kỳ bài tập lớn nào tôi đã làm ở trường.
-
-**4. Cơ hội học tập & phát triển kỹ năng**
-Những kỹ năng cụ thể tôi học được ngoài giáo trình:
+**3. Cơ hội học tập & phát triển kỹ năng**
+Những kỹ năng cụ thể em học được ngoài giáo trình:
 - **SageMaker MLOps pipeline as code**: ProcessingStep / TrainingStep / HPOStep / RegisterModelStep nối qua Kubeflow, chạy end-to-end bằng một `pipeline.start()`.
 - **Cost engineering**: Spot Training, Serverless Inference, lifecycle rule cho logs/artifacts, `max_parallel_jobs=1` cho HPO — và kỷ luật **xóa endpoint giữa các demo** để tránh idle bill ~35 USD/tháng.
-- **Drift detection không dùng managed Model Monitor**: Data Capture → S3 → EventBridge (rule 1 giờ) → Processing Job → PSI/KL divergence → CloudWatch custom metric → SNS alarm. Tự dựng bằng tay buộc tôi hiểu từng hop.
+- **Drift detection không dùng managed Model Monitor**: Data Capture → S3 → EventBridge (rule 1 giờ) → Processing Job → PSI/KL divergence → CloudWatch custom metric → SNS alarm. Tự dựng bằng tay buộc em hiểu từng hop.
 - **API hardening**: Lambda với IAM scope least-privilege (chỉ `sagemaker:InvokeEndpoint` trên endpoint ARN), API Gateway AWS_PROXY integration, disclaimer cố định trên mọi response để demo trung thực.
 - **Technical writing**: 3 bài blog đã đăng trên cộng đồng AWS Việt Nam, mỗi bài được mentor review trước khi xuất bản.
 
@@ -48,7 +45,7 @@ Budget 200 USD cho AWS là mức constraint hợp lý — đủ để chạy th�
   3. **Đẩy milestone blog đầu tiên về tuần 4**, không phải tuần cuối. Viết buộc tổng hợp sớm, và viết sớm sẽ phát hiện gap trong giả định pipeline.
 
 - **Nếu giới thiệu cho bạn bè, bạn có khuyên họ thực tập ở đây không? Tại sao?**
-  Có — nhưng có ngữ cảnh. Khuyên FCAJ nếu bạn muốn **end-to-end ownership** một hệ thống ML thật dưới ràng buộc budget thật, và nếu bạn sẵn sàng viết về những gì mình học (cadence blog là bắt buộc, không tùy chọn). Không khuyên nếu bạn muốn được spoon-feed một tutorial — chương trình kỳ vọng bạn tự đọc AWS docs, tự debug job, và đặt câu hỏi có mục tiêu cho mentor, không phải "tôi làm tiếp theo là gì".
+  Có — nhưng có ngữ cảnh. Khuyên FCAJ nếu bạn muốn **end-to-end ownership** một hệ thống ML thật dưới ràng buộc budget thật, và nếu bạn sẵn sàng viết về những gì mình học (cadence blog là bắt buộc, không tùy chọn). Không khuyên nếu bạn muốn được spoon-feed một tutorial — chương trình kỳ vọng bạn tự đọc AWS docs, tự debug job, và đặt câu hỏi có mục tiêu cho mentor, không phải "em làm tiếp theo là gì".
 
 ---
 

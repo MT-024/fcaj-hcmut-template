@@ -15,7 +15,7 @@ includeInReport: false
 | --- | --- |
 | **Event name** | FCAJ Internal Meet-up |
 | **Date** | 13/06/2026 |
-| **Location** | <!-- TODO: actual venue (e.g., FCAJ Vietnam Office, District ?, HCMC) --> |
+| **Location** | 26th Floor, Bitexco Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City<!-- TODO: actual venue (e.g., FCAJ Vietnam Office, District ?, HCMC) --> |
 | **Role** | Attendee |
 | **Format** | Lightning talks + internal sharing session |
 

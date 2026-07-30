@@ -1,99 +1,76 @@
 ---
-title : "VPC Endpoint Policies"
-date : 2024-01-01
-weight : 5
-chapter : false
-pre : " <b> 5.5. </b> "
+title: "Drift detection and CloudWatch alarm (Week 7)"
+date: 2026-06-01
+weight: 5
+chapter: false
+pre: " <b> 5.5. </b> "
 ---
 
-When you create an interface or gateway endpoint, you can attach an endpoint policy to it that controls access to the service to which you are connecting. A VPC endpoint policy is an IAM resource policy that you attach to an endpoint. If you do not attach a policy when you create an endpoint, AWS attaches a default policy for you that allows full access to the service through the endpoint.
+In week 7 the build picks up the Data Capture files written by week 6 and answers one question: *has the live traffic drifted away from the training distribution?* A custom SageMaker Processing Job does the work because the official Model Monitor schedule did not surface the needed feature-level metrics in time during testing.
 
-You can create a policy that restricts access to specific S3 buckets only. This is useful if you only want certain S3 Buckets to be accessible through the endpoint.
+#### 5.5.1 The drift Processing Job
 
-In this section you will create a VPC endpoint policy that restricts access to the S3 bucket specified in the VPC endpoint policy.
+The custom Processing Job runs hourly, triggered by an EventBridge rule on the Data Capture prefix.
 
-![endpoint diagram](/images/5-Workshop/5.5-Policy/s3-bucket-policy.png)
+![Custom Processing Job runs to detect drift](/images/5-Workshop/W7-01a-custom-processing-job.png)
 
-#### Connect to an EC2 instance and verify connectivity to S3
+The script:
 
-1. Start a new AWS Session Manager session on the instance named Test-Gateway-Endpoint. From the session, verify that you can list the contents of the bucket you created in Part 1: Access S3 from VPC:
+1. Reads the latest Data Capture JSONL files from S3.
+2. Loads the `baseline/` statistics produced by the week-2 Processing Job.
+3. For numeric features, computes **standardized mean shift** between baseline and current; flag drift if `|shift| > 0.5`.
+4. For categorical features, computes **total variation distance** between baseline and current distributions; flag drift if `TVD > 0.20`.
+5. Writes a drift report (`reports/drift/<run-id>.json`) and publishes two CloudWatch metrics under namespace **`Custom/HeartRisk`**:
+   - `DriftDetected` — 0 or 1.
+   - `DataQualityViolationCount` — count of features that drifted.
 
-```
-aws s3 ls s3://\<your-bucket-name\>
-```
-![test](/images/5-Workshop/5.5-Policy/test1.png)
+> These thresholds are illustrative PoC rules, not a clinical or production statistical standard. They are documented here so future readers know what was checked and why these specific values were chosen.
 
-The bucket contents include the two 1 GB files uploaded in earlier.
+#### 5.5.2 Drift report — example run
 
-2. Create a new S3 bucket; follow the naming pattern you used in Part 1, but add a '-2' to the name. Leave other fields as default and click create
+![Drift report shows 6 of 20 features drifted](/images/5-Workshop/W7-02-drift-report.png)
 
-![create bucket](/images/5-Workshop/5.5-Policy/create-bucket.png)
+The example run shows:
 
-Successfully create bucket
+- Baseline rows: 4,900
+- Current rows: 7,000
+- Features checked: 20
+- Violations: 6
+- Drift detected: true
 
-![Success](/images/5-Workshop/5.5-Policy/create-bucket-success.png)
+The six drifted features: `age`, `resting_bp`, `cholesterol`, `bmi`, `smoking_status`, `stress_level`. The same six appear in the detailed feature list (not shown above — moved to appendix in the report).
 
-3. Navigate to: Services > VPC > Endpoints, then select the Gateway VPC endpoint you created earlier. Click the Policy tab. Click Edit policy.
+#### 5.5.3 CloudWatch metrics
 
-![policy](/images/5-Workshop/5.5-Policy/policy1.png)
+![DriftDetected and DataQualityViolationCount published under Custom/HeartRisk](/images/5-Workshop/W7-04-custom-metrics.png)
 
-The default policy allows access to all S3 Buckets through the VPC endpoint.
+Values visible:
 
-4. In Edit Policy console, copy & Paste the following policy, then replace yourbucketname-2 with your 2nd bucket name. This policy will allow access through the VPC endpoint to your new bucket, but not any other bucket in Amazon S3. Click Save to apply the policy.
+- `DriftDetected = 1`
+- `DataQualityViolationCount = 6`
+- `Namespace = Custom/HeartRisk`
 
-```
-{
-  "Id": "Policy1631305502445",
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "Stmt1631305501021",
-      "Action": "s3:*",
-      "Effect": "Allow",
-      "Resource": [
-      				"arn:aws:s3:::yourbucketname-2",
-       				"arn:aws:s3:::yourbucketname-2/*"
-       ],
-      "Principal": "*"
-    }
-  ]
-}
-```
+These two metrics are the contract the alarm is built on.
 
-![custom policy](/images/5-Workshop/5.5-Policy/policy2.png)
+#### 5.5.4 CloudWatch Alarm
 
-Successfully customize policy
+![CloudWatch Alarm transitions to ALARM when DriftDetected reaches 1](/images/5-Workshop/W7-05-custom-alarm.png)
 
-![success](/static/images/5-Workshop/5.5-Policy/success.png)
+The alarm uses:
 
-5. From your session on the Test-Gateway-Endpoint instance, test access to the S3 bucket you created in Part 1: Access S3 from VPC
-```
-aws s3 ls s3://<yourbucketname>
-```
+- Statistic: **Maximum**
+- Threshold: **1**
+- Comparison: **GreaterThanOrEqualToThreshold**
+- Missing data: **ignore** (the custom Processing Job only publishes on completion, so missing data is normal)
 
-This command will return an error because access to this bucket is not permitted by your new VPC endpoint policy:
+When `DriftDetected = 1` is published, the alarm transitions to `ALARM` and a notification fires through the SNS topic created in 5.2.
 
-![error](/static/images/5-Workshop/5.5-Policy/error.png)
+#### What this gives the project
 
-6. Return to your home directory on your EC2 instance ` cd~ `
+- A working alert chain on a 200 USD budget: Data Capture → EventBridge hourly rule → custom Processing Job → CloudWatch metrics → CloudWatch alarm → SNS.
+- No managed Model Monitor required for this scope, which keeps the cost predictable.
+- The metrics namespace and the alarm threshold form a clear contract for what "drift detected" means — easy to extend later when managed Model Monitor becomes available.
 
-+ Create a file ```fallocate -l 1G test-bucket2.xyz ```
-+ Copy file to 2nd bucket ```aws s3 cp test-bucket2.xyz s3://<your-2nd-bucket-name>```
+#### Cost
 
-![success](/static/images/5-Workshop/5.5-Policy/test2.png)
-
-This operation succeeds because it is permitted by the VPC endpoint policy.
-
-![success](/static/images/5-Workshop/5.5-Policy/test2-success.png)
-
-+ Then we test access to the first bucket by copy the file to 1st bucket `aws s3 cp test-bucket2.xyz s3://<your-1st-bucket-name>`
-
-![fail](/static/images/5-Workshop/5.5-Policy/test2-fail.png)
-
-This command will return an error because access to this bucket is not permitted by your new VPC endpoint policy.
-
-#### Part 3 Summary:
-
-In this section, you created a VPC endpoint policy for Amazon S3, and used the AWS CLI to test the policy. AWS CLI actions targeted to your original S3 bucket failed because you applied a policy that only allowed access to the second bucket you created. AWS CLI actions targeted for your second bucket succeeded because the policy allowed them. These policies can be useful in situations where you need to control access to resources through VPC endpoints.
-
-
+Each hourly run of the Processing Job costs a few cents (a `ml.m5.large` for ~2 minutes). The CloudWatch custom metrics are also a few cents each per month. Total is well under 5 USD for the full 8 weeks.

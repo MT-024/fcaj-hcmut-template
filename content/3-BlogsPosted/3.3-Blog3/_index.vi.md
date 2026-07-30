@@ -6,9 +6,7 @@ chapter: false
 pre: " <b> 3.3. </b> "
 includeInReport: false
 ---
-{{% notice warning %}}
-⚠️ **Note:** For reference only. Do not copy verbatim.
-{{% /notice %}}
+
 
 # BLOG 3
 ## Chạy SageMaker MLOps với 200 USD: 13 quyết định để không cháy budget

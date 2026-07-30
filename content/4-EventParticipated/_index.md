@@ -15,7 +15,7 @@ During my 8-week FCAJ internship, I participated in **3 events**. Each was a mem
 
 &emsp;**Date:** 13/06/2026
 
-&emsp;**Location:** <!-- TODO: actual venue -->
+&emsp;**Location:** 26th Floor, Bitexco Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City<!-- TODO: actual venue -->
 
 &emsp;**Role:** Attendee
 
@@ -28,7 +28,7 @@ During my 8-week FCAJ internship, I participated in **3 events**. Each was a mem
 
 &emsp;**Date:** 06/06/2026
 
-&emsp;**Location:** <!-- TODO: actual venue -->
+&emsp;**Location:** 26th Floor, Bitexco Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City<!-- TODO: actual venue -->
 
 &emsp;**Role:** Attendee
 
@@ -41,7 +41,7 @@ During my 8-week FCAJ internship, I participated in **3 events**. Each was a mem
 
 &emsp;**Date:** ~25/07/2026
 
-&emsp;**Location:** <!-- TODO: actual venue -->
+&emsp;**Location:** 26th Floor, Bitexco Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City<!-- TODO: actual venue -->
 
 &emsp;**Role:** Attendee
 

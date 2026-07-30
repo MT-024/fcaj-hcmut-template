@@ -6,9 +6,6 @@ chapter: false
 pre: " <b> 3.1. </b> "
 includeInReport: false
 ---
-{{% notice warning %}}
-⚠️ **Note:** For reference only. Do not copy verbatim.
-{{% /notice %}}
 
 # BLOG 1
 ## AWS Lambda: "Use right" and "Run fast" strategies for cost optimization

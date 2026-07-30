@@ -15,7 +15,7 @@ includeInReport: false
 | --- | --- |
 | **Tên sự kiện** | FCAJ Community Meetup |
 | **Thời gian** | 06/06/2026 |
-| **Địa điểm** | <!-- TODO: địa điểm thực tế (vd: Hội trường trường ĐH ?, hoặc coworking space, TP.HCM) --> |
+| **Địa điểm** | Tầng 26, tòa nhà Bitexco, số 02 đường Hải Triều, phường Sài Gòn, thành phố Hồ Chí Minh<!-- TODO: địa điểm thực tế (vd: Hội trường trường ĐH ?, hoặc coworking space, TP.HCM) --> |
 | **Vai trò** | Người tham dự |
 | **Định dạng** | 6 lightning talks (~25 phút mỗi talk), bao trùm nhiều chủ đề Cloud / AI / Career |
 

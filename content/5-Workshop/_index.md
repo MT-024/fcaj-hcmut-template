@@ -1,32 +1,27 @@
 ---
 title: "Workshop"
-date: 2024-01-01
+date: 2026-06-01
 weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 includeInReport: false
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Secure Hybrid Access to S3 using VPC Endpoints
+# Heart-Attack-Risk Prediction — End-to-End MLOps Workshop
 
 #### Overview
 
-**AWS PrivateLink** provides private connectivity to AWS services from VPCs and your on-premises networks, without exposing your traffic to the Public Internet.
+This workshop is the build log of my **SageMaker MLOps capstone** for the FCAJ internship. It walks through every step from a raw CSV in S3 to a deployed, monitored REST API on AWS, with a budget cap of **200 USD**, a single region (`ap-southeast-1`), no GPU instances, and no NAT Gateway.
 
-In this lab, you will learn how to create, configure, and test VPC endpoints that enable your workloads to reach AWS services without traversing the Public Internet.
+Rather than a hands-on lab for the reader, this section documents **how I built the system**: what was provisioned, what each step did, what the artifacts looked like, and where the cost discipline showed up. Each sub-page corresponds to a phase of the build, in the same order as the 8-week internship.
 
-You will create two types of endpoints to access Amazon S3: a Gateway VPC endpoint, and an Interface VPC endpoint. These two types of VPC endpoints offer different benefits depending on if you are accessing Amazon S3 from the cloud or your on-premises location
-+ **Gateway** - Create a gateway endpoint to send traffic to Amazon S3 or DynamoDB using private IP addresses.You route traffic from your VPC to the gateway endpoint using route tables.
-+ **Interface** - Create an interface endpoint to send traffic to endpoint services that use a Network Load Balancer to distribute traffic. Traffic destined for the endpoint service is resolved using DNS.
+![Heart-Attack-Risk Prediction Architecture](/images/2-Proposal/aws-flow.jpg)
 
 #### Content
 
-1. [Workshop overview](5.1-Workshop-overview)
-2. [Prerequiste](5.2-Prerequiste/)
-3. [Access S3 from VPC](5.3-S3-vpc/)
-4. [Access S3 from On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (Bonus)](5.5-Policy/)
-6. [Clean up](5.6-Cleanup/)
+1. [Workshop overview](5.1-Workshop-overview/)
+2. [Prerequisite — AWS account, IAM, Budgets](5.2-Prerequiste/)
+3. [Data preprocessing on SageMaker (Week 2)](5.3-S3-vpc/)
+4. [Training, HPO, endpoint, and API (Weeks 3–6)](5.4-S3-onprem/)
+5. [Drift detection and CloudWatch alarm (Week 7)](5.5-Policy/)
+6. [SageMaker Pipeline and cleanup (Week 8)](5.6-Cleanup/)

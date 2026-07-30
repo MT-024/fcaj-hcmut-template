@@ -15,7 +15,7 @@ includeInReport: false
 | --- | --- |
 | **Tên sự kiện** | FCAJ Internal Meet-up |
 | **Thời gian** | 13/06/2026 |
-| **Địa điểm** | <!-- TODO: địa điểm thực tế của buổi meet-up (vd: FCAJ Vietnam Office, Quận ?, TP.HCM) --> |
+| **Địa điểm** |Tầng 26, tòa nhà Bitexco, số 02 đường Hải Triều, phường Sài Gòn, thành phố Hồ Chí Minh <!-- TODO: địa điểm thực tế của buổi meet-up (vd: FCAJ Vietnam Office, Quận ?, TP.HCM) --> |
 | **Vai trò** | Người tham dự |
 | **Định dạng** | Lightning talks + sharing session nội bộ |
 

@@ -6,9 +6,7 @@ chapter: false
 pre: " <b> 3.2. </b> "
 includeInReport: false
 ---
-{{% notice warning %}}
-⚠️ **Note:** For reference only. Do not copy verbatim.
-{{% /notice %}}
+
 
 # BLOG 2
 ## Amazon SageMaker: AWS's AI/ML and how to optimize without burning money
