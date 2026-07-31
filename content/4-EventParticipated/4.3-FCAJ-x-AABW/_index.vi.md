@@ -103,12 +103,11 @@ Sản phẩm phát hiện **sớm các thay đổi chiến lược doanh nghiệ
 
 ### Một số hình ảnh khi tham gia sự kiện
 
-*Thêm ảnh vào thư mục `images/` rồi chèn tại đây. Gợi ý:*
-*Drop photos into the `images/` folder and embed them here. Suggested names:*
-- `/fcaj-hcmut-template/images/blog/meetup-3-1.jpg` 
-- `/fcaj-hcmut-template/images/blog/meetup-3-2jpg.jpg` 
-- `/fcaj-hcmut-template/images/blog/meetup-3-3jpg.jpg` 
-- `/fcaj-hcmut-template/images/blog/meetup-3-4.jpg` 
+![image here](/fcaj-hcmut-template/images/blog/meetup-3-1.jpg) 
+![image here](/fcaj-hcmut-template/images/blog/meetup-3-2jpg.jpg)
+![image here](/fcaj-hcmut-template/images/blog/meetup-3-3jpg.jpg) 
+![image here](/fcaj-hcmut-template/images/blog/meetup-3-4.jpg) 
+
 
 > Tổng thể, hackathon cho thấy **một tuần build có thể ra sản phẩm thật** — và đó cũng chính là cách mình muốn vận hành giai đoạn cuối của đồ án capstone.
 

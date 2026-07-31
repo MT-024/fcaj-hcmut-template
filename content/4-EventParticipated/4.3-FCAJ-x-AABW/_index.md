@@ -103,17 +103,9 @@ A product that **detects corporate strategic shifts early** (restructuring signa
 
 ### Some event photos
 
-*Drop photos into the `images/` folder and embed them here. Suggested names:*
-- `/fcaj-hcmut-template/images/blog/meetup-3-1.jpg` 
-- `/fcaj-hcmut-template/images/blog/meetup-3-2jpg.jpg` 
-- `/fcaj-hcmut-template/images/blog/meetup-3-3jpg.jpg` 
-- `/fcaj-hcmut-template/images/blog/meetup-3-4.jpg` 
+![image here](/fcaj-hcmut-template/images/blog/meetup-3-1.jpg) 
+![image here](/fcaj-hcmut-template/images/blog/meetup-3-2jpg.jpg)
+![image here](/fcaj-hcmut-template/images/blog/meetup-3-3jpg.jpg) 
+![image here](/fcaj-hcmut-template/images/blog/meetup-3-4.jpg) 
 > Overall, the hackathon showed that **a one-week build can produce a shipping product** — and that's exactly how I want to run the final stretch of my capstone.
 
-### References
-
-* Slide decks in `AWS/FCAJ x AABW/`:
-  * `Hackathon_Journey_3KA.pptx`
-  * `OneTeam_CommunityDay.pptx`
-  * `SA_Professional_Native_App.pptx`
-  * `SignalScout.pptx`

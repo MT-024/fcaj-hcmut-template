@@ -128,9 +128,4 @@ Combining a managed WAF rule-based layer with an **ML-based NIDS** to catch nove
 - **Experiment small before scaling**: like Docker's image layer caching, I split preprocessing → training → HPO into independent steps; unchanged layers don't need to re-run.
 
 
-
 > Overall, the meetup broadened my view beyond just MLOps: containers, security, graphs, networking, sysadmin — all essential pieces when running ML systems at production-grade.
-
-### References
-
-* Slide decks in `AWS/Meetup 06-06-2026/` (4 of 6 files failed to parse via python-pptx; talk summaries are reconstructed from the live presentations and Q&A).
