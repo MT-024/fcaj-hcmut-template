@@ -107,16 +107,6 @@ The slide deck had no text. Kiên and Thọ delivered a short sharing session as
 - In the MLOps pipeline, I'll deliberately separate **debugging** from **fault-finding** to keep the No-Blame Post-Mortem spirit when Data Capture or drift alarms fail.
 - When writing `cleanup.py`, I think in **systems**: tag `Project=heart-risk-mlops`, dedicated resource group, never delete anything I didn't tag — the "DevOps is not about being a hero" mindset.
 
-### Some event photos
-
-*Drop photos into the `images/` folder and embed them here. Suggested names:*
-- `cover.jpg` — banner photo of the meet-up
-- `group.jpg` — group photo with attendees
-- `session-01.jpg` … `session-04.jpg` — one per talk
 
 > Overall, the meet-up gave me a clearer picture of where I can head **after FCAJ**, and the bar I need to reach for each path.
 
-### References
-
-* Slide decks in `AWS/Meet 13-06-2026/`
-* https://builder.aws.com/community/student-builder-groups

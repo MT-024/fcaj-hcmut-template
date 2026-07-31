@@ -107,16 +107,6 @@ Slide deck không có text; Kiên và Thọ đã trình bày một sharing sessi
 - Trong pipeline MLOps, mình sẽ chủ động tách bạch giữa **debugging** và **fault-finding** để giữ tinh thần No-Blame Post-Mortem khi Data Capture hoặc drift alarm fail.
 - Khi viết `cleanup.py`, mình suy nghĩ theo **systems**: tag `Project=heart-risk-mlops`, resource group riêng, để tránh xóa nhầm tài nguyên của người khác — đúng tinh thần "DevOps không phải làm hero".
 
-### Một số hình ảnh khi tham gia sự kiện
-
-*Thêm ảnh vào thư mục `images/` rồi chèn tại đây. Gợi ý:*
-- `cover.jpg` — ảnh banner meet-up
-- `group.jpg` — ảnh nhóm người tham dự
-- `session-01.jpg` … `session-04.jpg` — ảnh từng talk
-
 > Tổng thể, meet-up giúp mình nhìn rõ hơn **sau chương trình FCAJ** mình có thể đi những hướng nào, và tiêu chuẩn nào mình cần đạt tới cho mỗi hướng đó.
 
-### Tài liệu tham khảo
 
-* Slide decks trong `AWS/Meet 13-06-2026/`
-* https://builder.aws.com/community/student-builder-groups

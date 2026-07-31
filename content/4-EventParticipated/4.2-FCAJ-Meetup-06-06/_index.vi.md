@@ -127,15 +127,8 @@ Kết hợp managed WAF rule-based với một **ML-based NIDS** để phát hi�
 - Khi thiết kế drift detection, mình tham khảo cách talk #5 xử lý **cost** khi subgraph mở rộng: giới hạn batch size, cache kết quả. Áp dụng tương tự: giới hạn số lượng captured request xử lý mỗi giờ, cache baseline statistics.
 - Thử nghiệm **nhỏ trước khi scale**: giống như Docker (image layer cache), mình tách preprocessing → training → HPO thành các step độc lập, layer nào không đổi thì **không cần chạy lại**.
 
-### Một số hình ảnh khi tham gia sự kiện
 
 *Thêm ảnh vào thư mục `images/` rồi chèn tại đây. Gợi ý:*
-- `cover.jpg` — ảnh banner meetup
-- `group.jpg` — ảnh nhóm người tham dự
-- `session-01.jpg` … `session-06.jpg` — ảnh 6 talk
+
 
 > Tổng thể, meetup giúp mình mở rộng tầm nhìn ra ngoài MLOps: container, security, graph, networking, sysadmin — đều là những mảnh ghép rất cần khi vận hành hệ thống ML ở mức production.
-
-### Tài liệu tham khảo
-
-* Slide decks trong `AWS/Meetup 06-06-2026/` (4 trên 6 file không parse được bằng python-pptx, nội dung talk được tổng hợp từ phần trình bày trực tiếp và Q&A).

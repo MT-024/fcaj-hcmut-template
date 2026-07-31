@@ -127,12 +127,7 @@ Combining a managed WAF rule-based layer with an **ML-based NIDS** to catch nove
 - When designing drift detection, I borrow talk #5's idea of bounding query cost: limit the captured-request batch size per hour, cache baseline statistics.
 - **Experiment small before scaling**: like Docker's image layer caching, I split preprocessing → training → HPO into independent steps; unchanged layers don't need to re-run.
 
-### Some event photos
 
-*Drop photos into the `images/` folder and embed them here. Suggested names:*
-- `cover.jpg` — banner photo of the meetup
-- `group.jpg` — group photo with attendees
-- `session-01.jpg` … `session-06.jpg` — one per talk
 
 > Overall, the meetup broadened my view beyond just MLOps: containers, security, graphs, networking, sysadmin — all essential pieces when running ML systems at production-grade.
 

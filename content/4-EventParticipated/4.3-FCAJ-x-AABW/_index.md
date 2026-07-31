@@ -104,11 +104,10 @@ A product that **detects corporate strategic shifts early** (restructuring signa
 ### Some event photos
 
 *Drop photos into the `images/` folder and embed them here. Suggested names:*
-- `cover.jpg` — banner photo of the hackathon
-- `teams.jpg` — all 4 teams
-- `pitch.jpg` — a team pitching
-- `judging.jpg` — panel / Q&A moment
-
+- `/fcaj-hcmut-template/images/blog/meetup-3-1.jpg` 
+- `/fcaj-hcmut-template/images/blog/meetup-3-2jpg.jpg` 
+- `/fcaj-hcmut-template/images/blog/meetup-3-3jpg.jpg` 
+- `/fcaj-hcmut-template/images/blog/meetup-3-4.jpg` 
 > Overall, the hackathon showed that **a one-week build can produce a shipping product** — and that's exactly how I want to run the final stretch of my capstone.
 
 ### References
