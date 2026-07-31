@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>FCAJ Meetup — 06/06/2026 on Internship Report</title><link>https://MT-024.github.io/fcaj-hcmut-template/4-eventparticipated/4.2-fcaj-meetup-06-06/</link><description>Recent content in FCAJ Meetup — 06/06/2026 on Internship Report</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate><atom:link href="https://MT-024.github.io/fcaj-hcmut-template/4-eventparticipated/4.2-fcaj-meetup-06-06/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://MT-024.github.io/fcaj-hcmut-template/4-eventparticipated/4.2-fcaj-meetup-06-06/images/readme/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://MT-024.github.io/fcaj-hcmut-template/4-eventparticipated/4.2-fcaj-meetup-06-06/images/readme/</guid><description>&lt;p>Drop event photos here, then reference them from &lt;code>../_index.md&lt;/code> and &lt;code>../_index.vi.md&lt;/code> like:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-markdown" data-lang="markdown">&lt;span style="display:flex;">&lt;span>![&lt;span style="color:#f92672">Group photo at FCAJ Meetup&lt;/span>](&lt;span style="color:#a6e22e">/4-eventparticipated/4.2-fcaj-meetup-06-06/images/group.jpg&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>![&lt;span style="color:#f92672">Speaker session 1&lt;/span>](&lt;span style="color:#a6e22e">/4-eventparticipated/4.2-fcaj-meetup-06-06/images/session-01.jpg&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Suggested filenames so the layout stays consistent across events:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>cover.jpg&lt;/code> — main banner/cover photo&lt;/li>
+&lt;li>&lt;code>group.jpg&lt;/code> — group photo with other attendees&lt;/li>
+&lt;li>&lt;code>session-01.jpg&lt;/code> … &lt;code>session-NN.jpg&lt;/code> — one per talk&lt;/li>
+&lt;li>&lt;code>networking.jpg&lt;/code> — informal hallway / networking shot&lt;/li>
+&lt;/ul>
+&lt;p>Tip: keep individual files under ~1 MB so the Hugo build stays fast.&lt;/p></description></item></channel></rss>

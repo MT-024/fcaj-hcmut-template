@@ -1,0 +1,87 @@
+---
+title: "SageMaker Pipeline và cleanup (Tuần 8)"
+date: 2026-06-01
+weight: 6
+chapter: false
+pre: " <b> 5.6. </b> "
+---
+
+Tuần 8 gói bản dựng lại thành một **SageMaker Pipeline** rồi chạy `cleanup.py` để dọn các resource chạy liên tục.
+
+#### 5.6.1 Định nghĩa Pipeline
+
+Pipeline nối các bước từ tuần 2–5 thành một graph duy nhất:
+
+```
+PreprocessData → TrainModel → EvaluateModel → CheckModelQuality
+                                            ├── Pass → RegisterModel
+                                            └── Fail → MetricThresholdFailed
+```
+
+![SageMaker Pipeline graph cho thấy 4 bước nối với nhau](/images/5-Workshop/W8-01-pipeline-graph.png)
+
+Pipeline chạy end-to-end bằng một lệnh `pipeline.start()`. Vượt quality gate (ROC-AUC ≥ 0,84; F1 ≥ 0,70; recall ≥ 0,65) sẽ tạo một version mới trong Model Registry ở trạng thái `PendingManualApproval`. Pipeline **không tự deploy** model — con người vẫn phải duyệt.
+
+#### 5.6.2 Happy-path execution
+
+![Pipeline execution hoàn thành thành công](/images/5-Workshop/W8-02-pipeline-success.png)
+
+Một run thành công tạo Model Package Version 3 — entry Approved thứ ba hiển thị trong ảnh Model Registry tuần 5.
+
+#### 5.6.3 Failure có chủ đích làm test cho quality gate
+
+Để chứng minh quality gate thực sự loại model xấu, một Pipeline execution thứ hai được chạy với parameter `AucThreshold` bị override lên **0,99** — cao hơn nhiều so với ROC-AUC thực tế của model đã train.
+
+![Pipeline execution với threshold override fail ở ConditionStep](/images/5-Workshop/W8-05-pipeline-failure.png)
+
+Preprocessing, training và evaluation đều hoàn thành. `ConditionStep` trả về `false`. Pipeline chuyển sang `FailStep` và **không có Model Package mới nào được đăng ký**. Đây là hành vi kỳ vọng: một model không vượt thanh chuẩn chất lượng của dự án không thể tới registry, và do đó không thể tới API.
+
+#### 5.6.4 Cleanup script
+
+`cleanup.py` là lưới an toàn của dự án. Nó chỉ xóa resource được gắn tag `Project=heart-risk-mlops` và bỏ qua bất kỳ thứ nào tag khác. Cụ thể nó xóa:
+
+- Real-time endpoint `heart-risk-endpoint` và endpoint configuration của nó.
+- Inference model đã triển khai.
+- CloudWatch alarm trong `Custom/HeartRisk`.
+- Lambda function `heart-risk-api`.
+- API Gateway routes cho `/health` và `/predict`.
+- CloudWatch log groups cho Lambda và Processing Job không còn cần.
+
+Nó **cố ý giữ**:
+
+- S3 bucket và nội dung (raw, processed, artifacts, baseline, reports, drift).
+- Model Registry versions (để re-deploy chỉ một click).
+- Định nghĩa Pipeline (để `pipeline.start()` chạy được từ tuần 9 trở đi).
+
+```python
+# cleanup.py — outline
+import boto3
+
+PROJECT_TAG = {"Key": "Project", "Value": "heart-risk-mlops"}
+
+def tagged(tag_list, project_tag=PROJECT_TAG):
+    return any(t["Key"] == project_tag["Key"] and t["Value"] == project_tag["Value"]
+               for t in tag_list or [])
+
+def cleanup_endpoint(sm_client):
+    # delete endpoint, endpoint-config, and matching model
+    ...
+
+def cleanup_lambda(lambda_client, apigw_client, logs_client):
+    # delete Lambda function, API Gateway, log groups
+    ...
+
+if __name__ == "__main__":
+    cleanup_endpoint(boto3.client("sagemaker"))
+    cleanup_lambda(boto3.client("lambda"), boto3.client("apigateway"),
+                   boto3.client("logs"))
+    print("Cleanup complete.")
+```
+
+Script là run cuối cùng của tuần 8 và là thứ giúp dự án 8 tuần hạ cánh trong budget 200 USD — mọi resource tính phí chạy liên tục giờ đã được tag và dọn được bằng một lệnh.
+
+#### Trạng thái cuối cùng sau cleanup
+
+- Resource `Project=heart-risk-mlops` không còn chạy: không có.
+- Resource `Project=heart-risk-mlops` được giữ để tái lập: S3 bucket, Model Registry versions, định nghĩa Pipeline, CloudWatch logs.
+- Chi phí sau cleanup: chỉ còn S3 storage và Model Registry, dưới 5 USD/tháng.
