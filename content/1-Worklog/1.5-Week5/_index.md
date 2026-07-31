@@ -15,9 +15,6 @@ reportHeadings:
   - Tasks to be carried out this week
   - Week 5 Achievements
 ---
-{{% notice warning %}}
-⚠️ **Note:** For reference only.
-{{% /notice %}}
 
 
 ### Week 5 Objectives:

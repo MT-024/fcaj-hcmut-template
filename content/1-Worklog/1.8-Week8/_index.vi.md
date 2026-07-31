@@ -15,9 +15,6 @@ reportHeadings:
   - Công việc cần làm trong tuần
   - Thành quả tuần 8
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Chỉ mang tính tham khảo.
-{{% /notice %}}
 
 
 ### Mục tiêu tuần 8:

@@ -15,10 +15,6 @@ reportHeadings:
   - Tasks to be carried out this week
   - Week 4 Achievements
 ---
-{{% notice warning %}}
-⚠️ **Note:** For reference only.
-{{% /notice %}}
-
 
 ### Week 4 Objectives:
 

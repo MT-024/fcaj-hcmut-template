@@ -15,10 +15,6 @@ reportHeadings:
   - Công việc cần làm trong tuần
   - Thành quả tuần 2
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Thông tin dưới đây chỉ mang tính tham khảo. Vui lòng **không sao chép nguyên văn** cho báo cáo của bạn.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 2:
 
