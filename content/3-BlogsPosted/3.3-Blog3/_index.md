@@ -192,3 +192,5 @@ A budget cap isn't a limit. It forces you to design a better pipeline:
 These things are still useful even if the budget grows 10×.
 
 If you're working on an AWS project with a limited budget, **don't see it as a disadvantage**. See it as an opportunity to learn how to design systems correctly from the start.
+
+![Your profile picture](/fcaj-hcmut-template/images/blog-3.jpg)

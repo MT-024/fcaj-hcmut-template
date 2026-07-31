@@ -193,3 +193,5 @@ Budget cap không phải là giới hạn. Nó buộc bạn thiết kế pipelin
 Những thứ này vẫn hữu ích ngay cả khi ngân sách tăng gấp 10 lần.
 
 Nếu bạn đang làm project AWS với budget giới hạn, **đừng xem đó là bất lợi**. Hãy xem đó là cơ hội để học cách thiết kế hệ thống đúng ngay từ đầu.
+
+![Your profile picture](/fcaj-hcmut-template/images/blog-3.jpg)
