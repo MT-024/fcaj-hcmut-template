@@ -12,7 +12,7 @@ Tuần 7 bản dựng nhặt các file Data Capture mà tuần 6 đã ghi và tr
 
 Custom Processing Job chạy theo giờ, được trigger bởi một EventBridge rule trên prefix Data Capture.
 
-![Custom Processing Job chạy để phát hiện drift](/images/5-Workshop/W7-01a-custom-processing-job.png)
+![Custom Processing Job chạy để phát hiện drift](/fcaj-hcmut-template/images/5-Workshop/W7-01a-custom-processing-job.png)
 
 Script:
 
@@ -28,7 +28,7 @@ Script:
 
 #### 5.5.2 Drift report — ví dụ một run
 
-![Drift report cho thấy 6/20 feature bị drift](/images/5-Workshop/W7-02-drift-report.png)
+![Drift report cho thấy 6/20 feature bị drift](/fcaj-hcmut-template/images/5-Workshop/W7-02-drift-report.png)
 
 Run ví dụ cho thấy:
 
@@ -42,7 +42,7 @@ Sáu feature bị drift: `age`, `resting_bp`, `cholesterol`, `bmi`, `smoking_sta
 
 #### 5.5.3 CloudWatch metrics
 
-![DriftDetected và DataQualityViolationCount được publish trong Custom/HeartRisk](/images/5-Workshop/W7-04-custom-metrics.png)
+![DriftDetected và DataQualityViolationCount được publish trong Custom/HeartRisk](/fcaj-hcmut-template/images/5-Workshop/W7-04-custom-metrics.png)
 
 Giá trị hiển thị:
 
@@ -54,7 +54,7 @@ Hai metric này là hợp đồng mà alarm được dựng trên.
 
 #### 5.5.4 CloudWatch Alarm
 
-![CloudWatch Alarm chuyển sang ALARM khi DriftDetected đạt 1](/images/5-Workshop/W7-05-custom-alarm.png)
+![CloudWatch Alarm chuyển sang ALARM khi DriftDetected đạt 1](/fcaj-hcmut-template/images/5-Workshop/W7-05-custom-alarm.png)
 
 Alarm dùng:
 

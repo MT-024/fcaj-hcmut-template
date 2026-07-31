@@ -36,7 +36,7 @@ Hệ thống dùng Amazon S3 để lưu trữ dữ liệu và artifacts, SageMak
 ### 3. Kiến trúc giải pháp
 Sơ đồ dưới đây phản ánh đúng luồng đã triển khai (S3 → Processing → Train/HPO → Registry → Endpoint → API, với đường drift chạy song song và một pipeline điều phối):
 
-![Kiến trúc hệ thống Heart-Attack-Risk Prediction](/images/2-Proposal/aws-flow.jpg)
+![Kiến trúc hệ thống Heart-Attack-Risk Prediction](/fcaj-hcmut-template/images/2-Proposal/aws-flow.jpg)
 
 #### Dịch vụ AWS sử dụng
 - **Amazon S3** — lưu raw data, processed splits, baseline statistics, drift report và pipeline artifacts.

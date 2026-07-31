@@ -18,13 +18,13 @@ PreprocessData → TrainModel → EvaluateModel → CheckModelQuality
                                             └── Fail → MetricThresholdFailed
 ```
 
-![SageMaker Pipeline graph cho thấy 4 bước nối với nhau](/images/5-Workshop/W8-01-pipeline-graph.png)
+![SageMaker Pipeline graph cho thấy 4 bước nối với nhau](/fcaj-hcmut-template/images/5-Workshop/W8-01-pipeline-graph.png)
 
 Pipeline chạy end-to-end bằng một lệnh `pipeline.start()`. Vượt quality gate (ROC-AUC ≥ 0,84; F1 ≥ 0,70; recall ≥ 0,65) sẽ tạo một version mới trong Model Registry ở trạng thái `PendingManualApproval`. Pipeline **không tự deploy** model — con người vẫn phải duyệt.
 
 #### 5.6.2 Happy-path execution
 
-![Pipeline execution hoàn thành thành công](/images/5-Workshop/W8-02-pipeline-success.png)
+![Pipeline execution hoàn thành thành công](/fcaj-hcmut-template/images/5-Workshop/W8-02-pipeline-success.png)
 
 Một run thành công tạo Model Package Version 3 — entry Approved thứ ba hiển thị trong ảnh Model Registry tuần 5.
 
@@ -32,7 +32,7 @@ Một run thành công tạo Model Package Version 3 — entry Approved thứ ba
 
 Để chứng minh quality gate thực sự loại model xấu, một Pipeline execution thứ hai được chạy với parameter `AucThreshold` bị override lên **0,99** — cao hơn nhiều so với ROC-AUC thực tế của model đã train.
 
-![Pipeline execution với threshold override fail ở ConditionStep](/images/5-Workshop/W8-05-pipeline-failure.png)
+![Pipeline execution với threshold override fail ở ConditionStep](/fcaj-hcmut-template/images/5-Workshop/W8-05-pipeline-failure.png)
 
 Preprocessing, training và evaluation đều hoàn thành. `ConditionStep` trả về `false`. Pipeline chuyển sang `FailStep` và **không có Model Package mới nào được đăng ký**. Đây là hành vi kỳ vọng: một model không vượt thanh chuẩn chất lượng của dự án không thể tới registry, và do đó không thể tới API.
 

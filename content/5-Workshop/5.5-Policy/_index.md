@@ -12,7 +12,7 @@ In week 7 the build picks up the Data Capture files written by week 6 and answer
 
 The custom Processing Job runs hourly, triggered by an EventBridge rule on the Data Capture prefix.
 
-![Custom Processing Job runs to detect drift](/images/5-Workshop/W7-01a-custom-processing-job.png)
+![Custom Processing Job runs to detect drift](/fcaj-hcmut-template/images/5-Workshop/W7-01a-custom-processing-job.png)
 
 The script:
 
@@ -28,7 +28,7 @@ The script:
 
 #### 5.5.2 Drift report — example run
 
-![Drift report shows 6 of 20 features drifted](/images/5-Workshop/W7-02-drift-report.png)
+![Drift report shows 6 of 20 features drifted](/fcaj-hcmut-template/images/5-Workshop/W7-02-drift-report.png)
 
 The example run shows:
 
@@ -42,7 +42,7 @@ The six drifted features: `age`, `resting_bp`, `cholesterol`, `bmi`, `smoking_st
 
 #### 5.5.3 CloudWatch metrics
 
-![DriftDetected and DataQualityViolationCount published under Custom/HeartRisk](/images/5-Workshop/W7-04-custom-metrics.png)
+![DriftDetected and DataQualityViolationCount published under Custom/HeartRisk](/fcaj-hcmut-template/images/5-Workshop/W7-04-custom-metrics.png)
 
 Values visible:
 
@@ -54,7 +54,7 @@ These two metrics are the contract the alarm is built on.
 
 #### 5.5.4 CloudWatch Alarm
 
-![CloudWatch Alarm transitions to ALARM when DriftDetected reaches 1](/images/5-Workshop/W7-05-custom-alarm.png)
+![CloudWatch Alarm transitions to ALARM when DriftDetected reaches 1](/fcaj-hcmut-template/images/5-Workshop/W7-05-custom-alarm.png)
 
 The alarm uses:
 

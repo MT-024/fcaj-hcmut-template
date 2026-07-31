@@ -15,7 +15,7 @@ This workshop is the build log of my **SageMaker MLOps capstone** for the FCAJ i
 
 Rather than a hands-on lab for the reader, this section documents **how I built the system**: what was provisioned, what each step did, what the artifacts looked like, and where the cost discipline showed up. Each sub-page corresponds to a phase of the build, in the same order as the 8-week internship.
 
-![Heart-Attack-Risk Prediction Architecture](/images/2-Proposal/aws-flow.jpg)
+![Heart-Attack-Risk Prediction Architecture](/fcaj-hcmut-template/images/2-Proposal/aws-flow.jpg)
 
 #### Content
 

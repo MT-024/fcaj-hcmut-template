@@ -18,13 +18,13 @@ PreprocessData → TrainModel → EvaluateModel → CheckModelQuality
                                             └── Fail → MetricThresholdFailed
 ```
 
-![SageMaker Pipeline graph shows the 4 steps wired together](/images/5-Workshop/W8-01-pipeline-graph.png)
+![SageMaker Pipeline graph shows the 4 steps wired together](/fcaj-hcmut-template/images/5-Workshop/W8-01-pipeline-graph.png)
 
 The Pipeline runs end-to-end with a single `pipeline.start()`. Passing the quality gate (ROC-AUC ≥ 0.84, F1 ≥ 0.70, recall ≥ 0.65) lands a new version in the Model Registry at `PendingManualApproval`. The Pipeline does **not** deploy the model — humans still approve.
 
 #### 5.6.2 Happy-path execution
 
-![Pipeline execution completes successfully](/images/5-Workshop/W8-02-pipeline-success.png)
+![Pipeline execution completes successfully](/fcaj-hcmut-template/images/5-Workshop/W8-02-pipeline-success.png)
 
 A successful run creates Model Package Version 3 — the third Approved entry visible in the Model Registry screenshot from week 5.
 
@@ -32,7 +32,7 @@ A successful run creates Model Package Version 3 — the third Approved entry vi
 
 To prove that the quality gate actually rejects bad models, a second Pipeline execution is run with `AucThreshold` parameter overridden to **0.99** — far above the actual ROC-AUC of the trained model.
 
-![Pipeline execution with the threshold override fails at the ConditionStep](/images/5-Workshop/W8-05-pipeline-failure.png)
+![Pipeline execution with the threshold override fails at the ConditionStep](/fcaj-hcmut-template/images/5-Workshop/W8-05-pipeline-failure.png)
 
 Preprocessing, training, and evaluation all complete. The `ConditionStep` returns `false`. The Pipeline transitions to `FailStep` and **no new Model Package is registered**. This is the expected behavior: a model that does not pass the project's quality bar cannot reach the registry, and therefore cannot reach the API.
 

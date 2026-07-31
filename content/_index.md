@@ -29,7 +29,7 @@ chapter: false
 
 &emsp; **Internship Duration:** From 01/06/2026 to 15/8/2026
 
-![Your profile picture](/images/avatar.png)
+![Your profile picture](/fcaj-hcmut-template/images/avatar.JPG)
 
 ### Report Content
 

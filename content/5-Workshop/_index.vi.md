@@ -15,7 +15,7 @@ Workshop này là nhật ký xây dựng đồ án **SageMaker MLOps capstone** 
 
 Workshop không phải một bài lab để bạn đọc tự làm theo; đây là tài liệu mô tả **cách em đã dựng hệ thống**: những gì đã được provision, từng bước làm gì, kết quả trông ra sao và kỷ luật chi phí nằm ở đâu. Mỗi trang con tương ứng với một giai đoạn của bản dựng, đúng thứ tự với 8 tuần thực tập.
 
-![Kiến trúc Heart-Attack-Risk Prediction](/images/2-Proposal/aws-flow.jpg)
+![Kiến trúc Heart-Attack-Risk Prediction](/fcaj-hcmut-template/images/2-Proposal/aws-flow.jpg)
 
 #### Nội dung
 

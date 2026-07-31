@@ -12,7 +12,7 @@ Trước khi bất kỳ resource SageMaker nào được tạo, cần có ba th�
 
 Toàn bộ resource của dự án nằm trong **`ap-southeast-1`**. Chọn một region giúp tránh cross-region data transfer và giữ mọi quyết định IAM, networking, storage nhất quán.
 
-![Region ap-southeast-1 được chọn cho dự án](/images/5-Workshop/AWS-01-selected-region.png)
+![Region ap-southeast-1 được chọn cho dự án](/fcaj-hcmut-template/images/5-Workshop/AWS-01-selected-region.png)
 
 > Ảnh chụp region selector; trong tài khoản của em giá trị là `ap-southeast-1` (Singapore), không phải `us-east-1`. Tên file ảnh giữ theo cách đặt tên gốc lúc chụp nhưng bản thân dự án single-region `ap-southeast-1` từ đầu đến cuối.
 
@@ -20,7 +20,7 @@ Toàn bộ resource của dự án nằm trong **`ap-southeast-1`**. Chọn mộ
 
 Một Budget alarm với ba mốc (50 %, 80 %, 100 %) là lưới an toàn để em có thể thử nghiệm mà không sợ overspend.
 
-![AWS Budget overview với monthly budget dưới 200 USD](/images/5-Workshop/AWS-02-budget-overview.png)
+![AWS Budget overview với monthly budget dưới 200 USD](/fcaj-hcmut-template/images/5-Workshop/AWS-02-budget-overview.png)
 
 Khi chi phí dự kiến hoặc thực tế vượt một mốc, một thông báo SNS được gửi. Đây chính là tín hiệu duy nhất chứng minh kỷ luật chi phí là có thật, không phải chỉ nói.
 

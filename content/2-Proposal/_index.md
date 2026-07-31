@@ -36,7 +36,7 @@ The system uses Amazon S3 for data and artifact storage, SageMaker Processing fo
 ### 3. Solution Architecture
 The architecture below mirrors the project's actual deployed flow (S3 → Processing → Train/HPO → Registry → Endpoint → API, with a parallel drift path and a Pipeline orchestrator):
 
-![Heart-Attack-Risk Prediction Architecture](/images/2-Proposal/aws-flow.jpg)
+![Heart-Attack-Risk Prediction Architecture](/fcaj-hcmut-template/images/2-Proposal/aws-flow.jpg)
 
 #### AWS Services Used
 - **Amazon S3** — stores raw data, processed splits, baseline statistics, drift reports, and pipeline artifacts.

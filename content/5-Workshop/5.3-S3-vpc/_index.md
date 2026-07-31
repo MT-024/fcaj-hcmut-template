@@ -12,13 +12,13 @@ The processing step is expressed as a SageMaker **Processing Job** that reads `r
 
 #### Processing Job completed
 
-![SageMaker Processing Job completes successfully](/images/5-Workshop/W2-01-processing-completed.png)
+![SageMaker Processing Job completes successfully](/fcaj-hcmut-template/images/5-Workshop/W2-01-processing-completed.png)
 
 The status `Completed` is the proof that preprocessing ran on managed infrastructure, not in a local Jupyter kernel. The script that ran inside the container is the same script that later gets attached to the Pipeline's `ProcessingStep`.
 
 #### Data quality report
 
-![Processing Job log with rows / columns / split counts / missing count](/images/5-Workshop/W2-02-processing-log.png)
+![Processing Job log with rows / columns / split counts / missing count](/fcaj-hcmut-template/images/5-Workshop/W2-02-processing-log.png)
 
 Key numbers printed at the end of the job:
 
@@ -36,7 +36,7 @@ The fact that the positive rate is preserved across splits is evidence that stra
 
 #### Processed S3 layout
 
-![S3 bucket with the processed splits and artifacts organized by prefix](/images/5-Workshop/W2-03-processed-s3.png)
+![S3 bucket with the processed splits and artifacts organized by prefix](/fcaj-hcmut-template/images/5-Workshop/W2-03-processed-s3.png)
 
 After the job finishes, the bucket has this layout:
 

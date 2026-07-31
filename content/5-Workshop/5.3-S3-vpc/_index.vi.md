@@ -12,13 +12,13 @@ Bước xử lý được biểu diễn dưới dạng một SageMaker **Process
 
 #### Processing Job hoàn thành
 
-![SageMaker Processing Job hoàn thành thành công](/images/5-Workshop/W2-01-processing-completed.png)
+![SageMaker Processing Job hoàn thành thành công](/fcaj-hcmut-template/images/5-Workshop/W2-01-processing-completed.png)
 
 Trạng thái `Completed` là bằng chứng cho thấy preprocessing đã chạy trên hạ tầng managed, không phải trong một Jupyter kernel ở local. Script chạy bên trong container chính là script sau này sẽ được gắn vào `ProcessingStep` của Pipeline.
 
 #### Báo cáo chất lượng dữ liệu
 
-![Log của Processing Job với số dòng / cột / số lượng split / missing count](/images/5-Workshop/W2-02-processing-log.png)
+![Log của Processing Job với số dòng / cột / số lượng split / missing count](/fcaj-hcmut-template/images/5-Workshop/W2-02-processing-log.png)
 
 Các số quan trọng được in ở cuối job:
 
@@ -36,7 +36,7 @@ Positive rate được giữ qua các split chứng minh stratification đang ch
 
 #### Layout S3 sau xử lý
 
-![Bucket S3 với các split đã xử lý và artifacts tổ chức theo prefix](/images/5-Workshop/W2-03-processed-s3.png)
+![Bucket S3 với các split đã xử lý và artifacts tổ chức theo prefix](/fcaj-hcmut-template/images/5-Workshop/W2-03-processed-s3.png)
 
 Sau khi job kết thúc, bucket có layout sau:
 

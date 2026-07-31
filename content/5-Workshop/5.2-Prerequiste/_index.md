@@ -12,7 +12,7 @@ Before any SageMaker resource is created, three things must be in place: the rig
 
 All resources for this project live in **`ap-southeast-1`**. Picking one region avoids cross-region data transfer and keeps every IAM, networking, and storage decision consistent.
 
-![Region us-east-1 ... actually ap-southeast-1 selected for the project](/images/5-Workshop/AWS-01-selected-region.png)
+![Region us-east-1 ... actually ap-southeast-1 selected for the project](/fcaj-hcmut-template/images/5-Workshop/AWS-01-selected-region.png)
 
 > The screenshot shows the region selector; on my account the value is `ap-southeast-1` (Singapore), not `us-east-1`. The image filename reflects the original capture naming but the project itself is single-region `ap-southeast-1` end to end.
 
@@ -20,7 +20,7 @@ All resources for this project live in **`ap-southeast-1`**. Picking one region 
 
 A Budget alarm with three thresholds (50 %, 80 %, 100 %) is the safety net that lets you experiment without overspending.
 
-![AWS Budget overview with the project's monthly budget set below 200 USD](/images/5-Workshop/AWS-02-budget-overview.png)
+![AWS Budget overview with the project's monthly budget set below 200 USD](/fcaj-hcmut-template/images/5-Workshop/AWS-02-budget-overview.png)
 
 When the projected or actual spend crosses a threshold, an SNS notification is sent. This is the single signal that proves the cost discipline was real, not just claimed.
 
